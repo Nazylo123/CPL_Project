@@ -8,7 +8,7 @@
 
         public int SizeId { get; set; }
         public Size Size { get; set; }
-        public ProductSizeStock ProductSizeStock { get; set; }
+       
     }
 
 }

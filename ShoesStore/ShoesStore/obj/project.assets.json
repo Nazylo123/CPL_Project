@@ -4429,19 +4429,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {}
+    "C:\\Users\\LAPTOP FPT\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\ShoesStore.csproj",
+      "projectUniqueName": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\ShoesStore.csproj",
       "projectName": "ShoesStore",
-      "projectPath": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\ShoesStore.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\obj\\",
+      "projectPath": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\ShoesStore.csproj",
+      "packagesPath": "C:\\Users\\LAPTOP FPT\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LAPTOP FPT\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4518,7 +4518,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,8 +10,7 @@
         public Size Size { get; set; }
 
         public int Quantity { get; set; }
-        public int ProductSizeId { get; set; }
-        public ProductSize ProductSize { get; set; }
+      
     }
 
 }
