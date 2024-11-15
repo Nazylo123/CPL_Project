@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShoesStore.DTO;
 using ShoesStore.Model;
 using WebApi.Data;
 
@@ -40,13 +41,32 @@ namespace ShoesStore.Controllers
 
         // POST: api/Product
         [HttpPost]
-        public async Task<ActionResult<Product>> CreateProduct(Product product)
+        public async Task<ActionResult<Product>> CreateProduct(ProductDTO productDto)
         {
+            // Kiểm tra xem CategoryId có tồn tại không
+            var categoryExists = await _context.Categories.AnyAsync(c => c.Id == productDto.CategoryId);
+            if (!categoryExists)
+            {
+                return BadRequest($"CategoryId {productDto.CategoryId} does not exist.");
+            }
+
+            // Tạo thực thể Product từ ProductDTO
+            var product = new Product
+            {
+                Name = productDto.Name,
+                Description = productDto.Description,
+                Price = productDto.Price,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = productDto.UpdatedAt,
+                CategoryId = productDto.CategoryId
+            };
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
+
 
         // PUT: api/Product/{id}
         [HttpPut("{id}")]

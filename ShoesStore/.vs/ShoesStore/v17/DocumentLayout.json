@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Ky 5\\CPL_Project\\ShoesStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\ky 5\\cpl_project\\shoesstore\\shoesstore\\controllers\\productimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\ky 5\\cpl_project\\shoesstore\\shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\ky 5\\cpl_project\\shoesstore\\shoesstore\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\ky 5\\cpl_project\\shoesstore\\shoesstore\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\ky 5\\cpl_project\\shoesstore\\shoesstore\\model\\productsize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\model\\productsize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +26,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductImageController.cs",
-              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductImageController.cs",
-              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductImageController.cs",
-              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductImageController.cs",
-              "RelativeToolTip": "ShoesStore\\Controllers\\ProductImageController.cs",
+              "DocumentIndex": 3,
+              "Title": "ProductSize.cs",
+              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Model\\ProductSize.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Model\\ProductSize.cs",
+              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Model\\ProductSize.cs",
+              "RelativeToolTip": "ShoesStore\\Model\\ProductSize.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T12:54:06.418Z",
+              "WhenOpened": "2024-11-15T14:21:00.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs*",
+              "RelativeToolTip": "ShoesStore\\Controllers\\ProductController.cs*",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:54:05.255Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Model\\Product.cs",
+              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Model\\Product.cs",
+              "RelativeToolTip": "ShoesStore\\Model\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T14:20:48.217Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "ShoesStore\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ProductDTO.cs",
+              "DocumentMoniker": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\DTO\\ProductDTO.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\DTO\\ProductDTO.cs",
+              "ToolTip": "D:\\Ky 5\\CPL_Project\\ShoesStore\\ShoesStore\\DTO\\ProductDTO.cs",
+              "RelativeToolTip": "ShoesStore\\DTO\\ProductDTO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAEwAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T12:54:05.255Z"
+              "WhenOpened": "2024-11-15T14:23:37.098Z",
+              "EditorCaption": ""
             }
           ]
         }
