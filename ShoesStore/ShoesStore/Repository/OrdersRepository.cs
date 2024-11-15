@@ -107,13 +107,38 @@ namespace ShoesStore.Repository
 
 		public async Task DeleteOrderAsync(int orderId)
 		{
-			var order = await _context.Orders.FindAsync(orderId);
+			var order = await _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.ProductSizeStocks).FirstOrDefaultAsync(o => o.Id == orderId);
+
 			if (order != null)
 			{
+				// Nếu trạng thái đơn hàng là "Pending", tiến hành cập nhật kho
+				if (order.Status == "Pending")
+				{
+					foreach (var orderItem in order.OrderItems)
+					{
+						// Lấy số lượng sản phẩm trong kho theo ProductId và SizeId
+						var stock = await _context.ProductSizeStocks
+							.FirstOrDefaultAsync(ps => ps.ProductId == orderItem.ProductId && ps.SizeId == orderItem.SizeId);
+
+						if (stock != null)
+						{
+							// Tăng lại số lượng trong kho (do đơn hàng bị xóa)
+							stock.Quantity += orderItem.Quantity;
+							_context.ProductSizeStocks.Update(stock);
+						}
+					}
+				}
+
+				// Xóa đơn hàng
 				_context.Orders.Remove(order);
 				await _context.SaveChangesAsync();
 			}
 		}
+
+
+
+
+
 	}
 
 }
