@@ -1,0 +1,42 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+UI/dist
+UI/tmp
+UI/out-tsc
+UI/bazel-out
+
+# Node
+UI/node_modules
+UI/npm-debug.log
+UI/yarn-error.log
+
+# IDEs and editors
+UI/.idea/
+UI/.project
+UI/.classpath
+UI/.c9/
+UI/*.launch
+UI/.settings/
+UI/*.sublime-workspace
+
+# Visual Studio Code
+UI/.vscode/*
+!UI/.vscode/settings.json
+!UI/.vscode/tasks.json
+!UI/.vscode/launch.json
+!UI/.vscode/extensions.json
+UI/.history/*
+
+# Miscellaneous
+UI/.angular/cache
+UI/.sass-cache/
+UI/connect.lock
+UI/coverage
+UI/libpeerconnection.log
+UI/testem.log
+UI/typings
+
+# System files
+UI/.DS_Store
+UI/Thumbs.db
