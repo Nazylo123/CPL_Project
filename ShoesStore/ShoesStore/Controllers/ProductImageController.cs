@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShoesStore.Model;
 using WebApi.Data;
+using ShoesStore.DTO;
 
 namespace ShoesStore.Controllers
 {
@@ -19,21 +20,37 @@ namespace ShoesStore.Controllers
 
         // GET: api/ProductImage
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductImage>>> GetProductImages()
+        public async Task<ActionResult<IEnumerable<ProductImageDTO>>> GetProductImages()
         {
-            var productImages = await _context.ProductImages.ToListAsync();
+            var productImages = await _context.ProductImages
+                .Select(pi => new ProductImageDTO
+                {
+                    Id = pi.Id,
+                    ImageUrl = pi.ImageUrl,
+                    ProductId = pi.ProductId
+                })
+                .ToListAsync();
+
             return Ok(productImages);
         }
 
         // GET: api/ProductImage/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductImage>> GetProductImage(int id)
+        public async Task<ActionResult<ProductImageDTO>> GetProductImage(int id)
         {
-            var productImage = await _context.ProductImages.FindAsync(id);
+            var productImage = await _context.ProductImages
+                .Where(pi => pi.Id == id)
+                .Select(pi => new ProductImageDTO
+                {
+                    Id = pi.Id,
+                    ImageUrl = pi.ImageUrl,
+                    ProductId = pi.ProductId
+                })
+                .FirstOrDefaultAsync();
 
             if (productImage == null)
             {
-                return NotFound();
+                return NotFound(new { Message = "Product image not found." });
             }
 
             return Ok(productImage);
@@ -41,50 +58,65 @@ namespace ShoesStore.Controllers
 
         // POST: api/ProductImage
         [HttpPost]
-        public async Task<ActionResult<ProductImage>> PostProductImage(ProductImage productImage)
+        public async Task<ActionResult<ProductImageDTO>> PostProductImage(ProductImageDTO productImageDto)
         {
-            // Kiểm tra xem sản phẩm đã tồn tại hay chưa (nếu cần thiết)
-            var product = await _context.Products.FindAsync(productImage.ProductId);
-            if (product == null)
+            var productExists = await _context.Products.AnyAsync(p => p.Id == productImageDto.ProductId);
+            if (!productExists)
             {
-                return BadRequest("Product not found.");
+                return BadRequest(new { Message = "Product not found." });
             }
 
-            // Thêm mới productImage vào cơ sở dữ liệu
-            _context.ProductImages.Add(productImage);
-            await _context.SaveChangesAsync();
+            var productImage = new ProductImage
+            {
+                ImageUrl = productImageDto.ImageUrl,
+                ProductId = productImageDto.ProductId
+            };
 
-            return CreatedAtAction("GetProductImage", new { id = productImage.Id }, productImage);
+            try
+            {
+                _context.ProductImages.Add(productImage);
+                await _context.SaveChangesAsync();
+
+                productImageDto.Id = productImage.Id; // Gán ID sau khi thêm
+                return CreatedAtAction(nameof(GetProductImage), new { id = productImage.Id }, productImageDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = "Error adding product image.", Details = ex.Message });
+            }
         }
 
         // PUT: api/ProductImage/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductImage(int id, ProductImage productImage)
+        public async Task<IActionResult> PutProductImage(int id, ProductImageDTO productImageDto)
         {
-            if (id != productImage.Id)
+            if (id != productImageDto.Id)
             {
-                return BadRequest();
+                return BadRequest(new { Message = "ID mismatch." });
             }
 
-            _context.Entry(productImage).State = EntityState.Modified;
+            var existingProductImage = await _context.ProductImages.FindAsync(id);
+            if (existingProductImage == null)
+            {
+                return NotFound(new { Message = "Product image not found." });
+            }
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductImageExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                existingProductImage.ImageUrl = productImageDto.ImageUrl;
+                existingProductImage.ProductId = productImageDto.ProductId;
 
-            return NoContent();
+                _context.Entry(existingProductImage).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Message = "Product image updated successfully." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = "Error updating product image.", Details = ex.Message });
+            }
         }
 
         // DELETE: api/ProductImage/5
@@ -94,13 +126,21 @@ namespace ShoesStore.Controllers
             var productImage = await _context.ProductImages.FindAsync(id);
             if (productImage == null)
             {
-                return NotFound();
+                return NotFound(new { Message = "Product image not found." });
             }
 
-            _context.ProductImages.Remove(productImage);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.ProductImages.Remove(productImage);
+                await _context.SaveChangesAsync();
 
-            return NoContent();
+                return Ok(new { Message = "Product image deleted successfully.", DeletedProductImageId = id });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = "Error deleting product image.", Details = ex.Message });
+            }
         }
 
         private bool ProductImageExists(int id)

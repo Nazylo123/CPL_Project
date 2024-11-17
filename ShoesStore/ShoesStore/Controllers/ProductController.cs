@@ -17,15 +17,30 @@ namespace ShoesStore.Controllers
             _context = context;
         }
 
-        // GET: api/Product
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<object>>> GetProducts()
         {
-            var product = _context.Products.ToList();
-            return product;
+            var products = await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.ProductImages)
+                .Select(p => new
+                {
+                    ProductId = p.Id,
+                    ProductName = p.Name,
+                    ProductDescription = p.Description,
+                    ProductPrice = p.Price,
+                    CreatedAt = p.CreatedAt,
+                    UpdatedAt = p.UpdatedAt,
+                    CategoryId = p.Category.Id,
+                    CategoryName = p.Category.Name,
+                    CategoryDescription = p.Category.Description,
+                    Images = p.ProductImages.Select(i => i.ImageUrl).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(products);
         }
 
-        // GET: api/Product/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -39,18 +54,15 @@ namespace ShoesStore.Controllers
             return await product;
         }
 
-        // POST: api/Product
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(ProductDTO productDto)
         {
-            // Kiểm tra xem CategoryId có tồn tại không
             var categoryExists = await _context.Categories.AnyAsync(c => c.Id == productDto.CategoryId);
             if (!categoryExists)
             {
                 return BadRequest($"CategoryId {productDto.CategoryId} does not exist.");
             }
 
-            // Tạo thực thể Product từ ProductDTO
             var product = new Product
             {
                 Name = productDto.Name,
@@ -67,17 +79,31 @@ namespace ShoesStore.Controllers
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
-
-        // PUT: api/Product/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, Product product)
+        public async Task<IActionResult> UpdateProduct(int id, ProductDTO productDto)
         {
-            if (id != product.Id)
+            if (id == null)
             {
-                return BadRequest();
+                return BadRequest("ID is required.");
             }
 
-            _context.Entry(product).State = EntityState.Modified;
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct == null)
+            {
+                return NotFound("Product not found.");
+            }
+
+            var categoryExists = await _context.Categories.AnyAsync(c => c.Id == productDto.CategoryId);
+            if (!categoryExists)
+            {
+                return BadRequest($"CategoryId {productDto.CategoryId} does not exist.");
+            }
+
+            existingProduct.Name = productDto.Name;
+            existingProduct.Description = productDto.Description;
+            existingProduct.Price = productDto.Price;
+            existingProduct.UpdatedAt = DateTime.Now;
+            existingProduct.CategoryId = productDto.CategoryId;
 
             try
             {
@@ -98,20 +124,46 @@ namespace ShoesStore.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Product/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .Include(p => p.ProductImages)
+                .Include(p => p.ProductSizes)
+                .ThenInclude(ps => ps.ProductSizeStock)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             if (product == null)
             {
-                return NotFound();
+                return NotFound(new { Message = $"Product with Id {id} not found." });
+            }
+
+            if (product.ProductImages.Any())
+            {
+                _context.ProductImages.RemoveRange(product.ProductImages);
+            }
+
+            foreach (var productSize in product.ProductSizes)
+            {
+                if (productSize.ProductSizeStock != null)
+                {
+                    _context.ProductSizeStocks.Remove(productSize.ProductSizeStock);
+                }
+                _context.ProductSizes.Remove(productSize);
             }
 
             _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
 
-            return NoContent();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = "Error deleting product.", Details = ex.Message });
+            }
+
+            return Ok(new { Message = "Product deleted successfully.", DeletedProductId = id });
         }
 
         private bool ProductExists(int id)
