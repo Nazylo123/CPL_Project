@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShoesStore.IRepository;
 using ShoesStore.Model;
+using ShoesStore.ViewModel.RequestModel;
+using ShoesStore.ViewModel.ResponseModel;
 using WebApi.Data;
 
 namespace ShoesStore.Controllers
@@ -9,94 +13,119 @@ namespace ShoesStore.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProdudctRepository _productRepository;
 
-        public ProductController(AppDbContext context)
+        public ProductController(IProdudctRepository productRepository)
         {
-            _context = context;
+            _productRepository = productRepository;
         }
 
-        // GET: api/Product
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductReponseViewModel>>> GetAllProducts()
         {
-            var product = _context.Products.ToList();
-            return product;
-        }
-
-        // GET: api/Product/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
-        {
-            var product = _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
+                var products = await _productRepository.GetAllProductAsync();
 
-            return await product;
+                if (products == null || !products.Any())
+                {
+                    return NotFound("No products found.");
+                }
+
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
+
+
 
         // POST: api/Product
-        [HttpPost]
-        public async Task<ActionResult<Product>> CreateProduct(Product product)
+        [HttpPost("{categoryID}")]
+        public async Task<ActionResult> CreateProduct([FromBody] ProductRequestModel productRequest, int categoryID)
         {
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
-        }
-
-        // PUT: api/Product/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, Product product)
-        {
-            if (id != product.Id)
+            if (productRequest == null)
             {
-                return BadRequest();
+                return BadRequest("ProductRequestModel is null.");
             }
-
-            _context.Entry(product).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+
+                await _productRepository.AddProductAsync(productRequest, categoryID);
+                return Ok("Product created successfully.");
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-
-            return NoContent();
         }
 
-        // DELETE: api/Product/{id}
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        [HttpDelete("{productId}")]
+        public async Task<ActionResult> Deleteproduct(int productId)
         {
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            try
             {
-                return NotFound();
+                bool result = await _productRepository.DeleteproductAsync(productId);
+                if (result)
+                {
+                    return Ok("Deleted successfully.");
+                }
+                else return NotFound($"Product with ID {productId} not found.");
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Error: {e.Message}");
+            }
+        }
+
+        [HttpGet("{productId}")]
+        public async Task<ActionResult<ProductReponseViewModel>> GetProduct(int productId)
+        {
+            try
+            {
+                var product = await _productRepository.GetProductAsync(productId);
+
+                if (product == null)
+                {
+                    return NotFound($"Product with ID {productId} not found.");
+                }
+
+                return Ok(product);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Internal Server Error: {e.Message}");
+            }
+        }
+
+        [HttpPut("{productId}")]
+        public async Task<ActionResult> UpdateProduct(int productId, [FromBody] ProductRequestModel productRequest)
+        {
+            if (productRequest == null)
+            {
+                return BadRequest("ProductRequestModel is null.");
             }
 
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            try
+            {
+                await _productRepository.UpdateProdudctAsync(productRequest, productId);
+                return Ok("Product updated successfully.");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
-        }
+
+
+
     }
 }

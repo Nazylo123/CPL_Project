@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ShoesStore.Model;
-using WebApi.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using ShoesStore.IRepository;
+using ShoesStore.ViewModel.RequestModel;
 
 namespace ShoesStore.Controllers
 {
@@ -10,102 +8,126 @@ namespace ShoesStore.Controllers
     [ApiController]
     public class ProductImageController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProdudctImageRepository _productImageRepository;
 
-        public ProductImageController(AppDbContext context)
+        public ProductImageController(IProdudctImageRepository productImageRepository)
         {
-            _context = context;
+            _productImageRepository = productImageRepository;
         }
 
-        // GET: api/ProductImage
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductImage>>> GetProductImages()
+        // POST: api/ProductImage/{productID}
+        [HttpPost("{productID}")]
+        public async Task<ActionResult<ProductImageRequestModel>> AddImage(int productID, [FromBody] ProductImageRequestModel productImageRequestModel)
         {
-            var productImages = await _context.ProductImages.ToListAsync();
-            return Ok(productImages);
-        }
-
-        // GET: api/ProductImage/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductImage>> GetProductImage(int id)
-        {
-            var productImage = await _context.ProductImages.FindAsync(id);
-
-            if (productImage == null)
+            if (productImageRequestModel == null)
             {
-                return NotFound();
+                return BadRequest("ProductImageRequestModel is null.");
             }
-
-            return Ok(productImage);
-        }
-
-        // POST: api/ProductImage
-        [HttpPost]
-        public async Task<ActionResult<ProductImage>> PostProductImage(ProductImage productImage)
-        {
-            // Kiểm tra xem sản phẩm đã tồn tại hay chưa (nếu cần thiết)
-            var product = await _context.Products.FindAsync(productImage.ProductId);
-            if (product == null)
-            {
-                return BadRequest("Product not found.");
-            }
-
-            // Thêm mới productImage vào cơ sở dữ liệu
-            _context.ProductImages.Add(productImage);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProductImage", new { id = productImage.Id }, productImage);
-        }
-
-        // PUT: api/ProductImage/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductImage(int id, ProductImage productImage)
-        {
-            if (id != productImage.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(productImage).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductImageExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                var newImage = await _productImageRepository.AddImageAsync(productID, productImageRequestModel);
 
-            return NoContent();
+                if (newImage == null)
+                {
+                    return NotFound($"Product with ID {productID} not found.");
+                }
+
+                return CreatedAtAction(nameof(GetImageById), new { imageID = newImage.ProductId }, newImage);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // DELETE: api/ProductImage/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductImage(int id)
+        // DELETE: api/ProductImage/{imageID}
+        [HttpDelete("{imageID}")]
+        public async Task<ActionResult> DeleteImage(int imageID)
         {
-            var productImage = await _context.ProductImages.FindAsync(id);
-            if (productImage == null)
+            try
             {
-                return NotFound();
+                var result = await _productImageRepository.DeleteImageAsync(imageID);
+
+                if (!result)
+                {
+                    return NotFound($"Image with ID {imageID} not found.");
+                }
+
+                return Ok("Image deleted successfully.");
             }
-
-            _context.ProductImages.Remove(productImage);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        private bool ProductImageExists(int id)
+        // GET: api/ProductImage/product/{productID}
+        [HttpGet("product/{productID}")]
+        public async Task<ActionResult<IEnumerable<ProductImageRequestModel>>> GetAllImagesByProductId(int productID)
         {
-            return _context.ProductImages.Any(e => e.Id == id);
+            try
+            {
+                var images = await _productImageRepository.GetAllProductImageAsync(productID);
+
+                if (!images.Any())
+                {
+                    return NotFound($"No images found for product with ID {productID}.");
+                }
+
+                return Ok(images);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // GET: api/ProductImage/{imageID}
+        [HttpGet("{imageID}")]
+        public async Task<ActionResult<ProductImageRequestModel>> GetImageById(int imageID)
+        {
+            try
+            {
+                var image = await _productImageRepository.GetProductImageByIdAsync(imageID);
+
+                if (image == null)
+                {
+                    return NotFound($"Image with ID {imageID} not found.");
+                }
+
+                return Ok(image);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        // PUT: api/ProductImage/{imageID}
+        [HttpPut("{imageID}")]
+        public async Task<ActionResult<ProductImageRequestModel>> UpdateImage(int imageID, [FromBody] ProductImageRequestModel productImageRequestModel)
+        {
+            if (productImageRequestModel == null)
+            {
+                return BadRequest("ProductImageRequestModel is null.");
+            }
+
+            try
+            {
+                var updatedImage = await _productImageRepository.UpdateImageAsync(imageID, productImageRequestModel);
+
+                if (updatedImage == null)
+                {
+                    return NotFound($"Image with ID {imageID} not found.");
+                }
+
+                return Ok(updatedImage);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

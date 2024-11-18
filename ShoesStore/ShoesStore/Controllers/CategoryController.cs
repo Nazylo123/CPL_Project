@@ -26,6 +26,7 @@ namespace ShoesStore.Controllers
             var categories = await _context.Categories
                                           .Select(c => new CategoryViewModel
                                           {
+                                              
                                               Name = c.Name,
                                               Description = c.Description,
                                               ImageUrl = c.ImageUrl

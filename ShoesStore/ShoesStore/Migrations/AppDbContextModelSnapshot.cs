@@ -314,12 +314,17 @@ namespace ShoesStore.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ProductId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("ProductId1");
 
                     b.HasIndex("SizeId");
 
@@ -592,6 +597,10 @@ namespace ShoesStore.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("ShoesStore.Model.Product", null)
+                        .WithMany("ProductSizeStocks")
+                        .HasForeignKey("ProductId1");
+
                     b.HasOne("ShoesStore.Model.Size", "Size")
                         .WithMany("ProductSizes")
                         .HasForeignKey("SizeId")
@@ -646,6 +655,8 @@ namespace ShoesStore.Migrations
             modelBuilder.Entity("ShoesStore.Model.Product", b =>
                 {
                     b.Navigation("ProductImages");
+
+                    b.Navigation("ProductSizeStocks");
 
                     b.Navigation("ProductSizes");
                 });
