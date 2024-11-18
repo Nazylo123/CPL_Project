@@ -38,6 +38,7 @@ namespace WebAPI
             builder.Services.AddScoped<IProdudctRepository, ProductRepository>();
             builder.Services.AddScoped<IProdudctImageRepository, ProdudctImageRepository>();
             builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+            builder.Services.AddTransient<IEmailRepository, EmailRepository>();
 
             builder.Services.AddIdentityCore<IdentityUser>()
                 .AddRoles<IdentityRole>()

@@ -12,6 +12,7 @@
         public DateTime UpdatedAt { get; set; }
 
         public List<ProductSize> ProductSizes { get; set; }
+        public List<ProductSize> ProductSizeStocks { get; set; }
         public List<ProductImage> ProductImages { get; set; }
     }
 
