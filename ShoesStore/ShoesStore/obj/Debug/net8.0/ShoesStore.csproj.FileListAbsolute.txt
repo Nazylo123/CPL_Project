@@ -298,3 +298,4 @@ C:\Users\LAPTOP FPT\Downloads\OJT\Project OJT\ShoesStore\ShoesStore\obj\Debug\ne
 C:\Users\LAPTOP FPT\Downloads\OJT\Project OJT\ShoesStore\ShoesStore\obj\Debug\net8.0\ShoesStore.pdb
 C:\Users\LAPTOP FPT\Downloads\OJT\Project OJT\ShoesStore\ShoesStore\obj\Debug\net8.0\ShoesStore.genruntimeconfig.cache
 C:\Users\LAPTOP FPT\Downloads\OJT\Project OJT\ShoesStore\ShoesStore\obj\Debug\net8.0\ref\ShoesStore.dll
+C:\Users\LAPTOP FPT\Downloads\OJT\Project OJT\ShoesStore\ShoesStore\obj\Debug\net8.0\ShoesStore.sourcelink.json

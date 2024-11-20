@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace ShoesStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241114094834_InitialDB")]
-    partial class InitialDB
+    [Migration("20241116073838_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -609,7 +609,7 @@ namespace ShoesStore.Migrations
             modelBuilder.Entity("ShoesStore.Model.ProductSizeStock", b =>
                 {
                     b.HasOne("ShoesStore.Model.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductSizeStocks")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -649,6 +649,8 @@ namespace ShoesStore.Migrations
             modelBuilder.Entity("ShoesStore.Model.Product", b =>
                 {
                     b.Navigation("ProductImages");
+
+                    b.Navigation("ProductSizeStocks");
 
                     b.Navigation("ProductSizes");
                 });

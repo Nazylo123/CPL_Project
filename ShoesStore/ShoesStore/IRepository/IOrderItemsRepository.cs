@@ -2,7 +2,7 @@
 
 namespace ShoesStore.IRepository
 {
-	public class IOrderItemsRepository
+	public interface IOrderItemsRepository
 	{
 		Task<IEnumerable<OrderItemViewModel>> GetAllOrderItemsAsync();
 		Task<OrderItemViewModel> GetOrderItemByIdAsync(int orderItemId);

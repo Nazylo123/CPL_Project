@@ -606,7 +606,7 @@ namespace ShoesStore.Migrations
             modelBuilder.Entity("ShoesStore.Model.ProductSizeStock", b =>
                 {
                     b.HasOne("ShoesStore.Model.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductSizeStocks")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -646,6 +646,8 @@ namespace ShoesStore.Migrations
             modelBuilder.Entity("ShoesStore.Model.Product", b =>
                 {
                     b.Navigation("ProductImages");
+
+                    b.Navigation("ProductSizeStocks");
 
                     b.Navigation("ProductSizes");
                 });

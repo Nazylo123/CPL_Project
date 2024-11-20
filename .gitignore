@@ -1,0 +1,19 @@
+# Loại trừ node_modules chỉ trong thư mục UI
+UI/node_modules/
+
+# Thư mục build hoặc tạm thời
+UI/dist/
+UI/.angular/
+UI/.cache/
+
+# Tệp log và tạm thời trong UI
+UI/npm-debug.log*
+UI/yarn-debug.log*
+UI/yarn-error.log*
+
+# Loại trừ tất cả thư mục node_modules trên toàn dự án (nếu có)
+**/node_modules/
+
+# Tệp nhạy cảm hoặc cấu hình
+UI/src/environments/environment*.ts
+ 

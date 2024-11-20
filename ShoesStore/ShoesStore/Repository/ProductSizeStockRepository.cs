@@ -5,7 +5,7 @@ using WebApi.Data;
 
 namespace ShoesStore.Repository
 {
-	public class ProductSizeStockRepository
+	public class ProductSizeStockRepository : IProductSizeStockRepository
 	{
 		private readonly AppDbContext _context;
 

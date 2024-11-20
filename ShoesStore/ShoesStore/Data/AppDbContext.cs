@@ -12,7 +12,6 @@ namespace WebApi.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Size> Sizes { get; set; }
-        public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<ProductSizeStock> ProductSizeStocks { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -39,15 +38,8 @@ namespace WebApi.Data
                 .Property(o => o.TotalAmount)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Product>()
-                .HasMany(p => p.ProductSizes)
-                .WithOne(ps => ps.Product)
-                .HasForeignKey(ps => ps.ProductId).OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Size>()
-                .HasMany(s => s.ProductSizes)
-                .WithOne(ps => ps.Size)
-                .HasForeignKey(ps => ps.SizeId).OnDelete(DeleteBehavior.NoAction);
+           
 
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.ProductImages)
