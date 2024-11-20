@@ -35,13 +35,17 @@ namespace WebAPI
             });
 
 
-           
+            builder.Services.AddScoped<IProdudctRepository, ProductRepository>();
+            builder.Services.AddScoped<IProdudctImageRepository, ProdudctImageRepository>();
             builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+
             builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
             builder.Services.AddScoped<IOrderItemsRepository, OrderItemsRepository>();
 
             builder.Services.AddScoped<IProductSizeStockRepository, ProductSizeStockRepository>();
 
+
+            builder.Services.AddTransient<IEmailRepository, EmailRepository>();
 
 
             builder.Services.AddIdentityCore<IdentityUser>()

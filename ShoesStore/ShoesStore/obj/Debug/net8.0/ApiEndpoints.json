@@ -157,8 +157,39 @@
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "GetProducts",
+=======
+    "ContainingType": "ShoesStore.Controllers.EmailController",
+    "Method": "SendEmail",
+    "RelativePath": "api/Email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "receptor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "subject",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "body",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.ProductController",
+    "Method": "GetAllProducts",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "RelativePath": "api/Product",
     "HttpMethod": "GET",
     "IsController": true,
@@ -166,7 +197,11 @@
     "Parameters": [],
     "ReturnTypes": [
       {
+<<<<<<< HEAD
         "Type": "System.Collections.Generic.IEnumerable\u00601[[ShoesStore.Model.Product, ShoesStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+=======
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShoesStore.ViewModel.ResponseModel.ProductReponseViewModel, ShoesStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -179,12 +214,17 @@
   {
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "CreateProduct",
+<<<<<<< HEAD
     "RelativePath": "api/Product",
+=======
+    "RelativePath": "api/Product/{categoryID}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "product",
         "Type": "ShoesStore.Model.Product",
         "IsRequired": true
@@ -201,24 +241,65 @@
         "StatusCode": 200
       }
     ]
+=======
+        "Name": "productRequest",
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductRequestModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "categoryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.ProductController",
+    "Method": "Deleteproduct",
+    "RelativePath": "api/Product/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
   },
   {
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "GetProduct",
+<<<<<<< HEAD
     "RelativePath": "api/Product/{id}",
+=======
+    "RelativePath": "api/Product/{productId}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "id",
+=======
+        "Name": "productId",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
+<<<<<<< HEAD
         "Type": "ShoesStore.Model.Product",
+=======
+        "Type": "ShoesStore.ViewModel.ResponseModel.ProductReponseViewModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -231,34 +312,57 @@
   {
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "UpdateProduct",
+<<<<<<< HEAD
     "RelativePath": "api/Product/{id}",
+=======
+    "RelativePath": "api/Product/{productId}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "id",
+=======
+        "Name": "productId",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
+<<<<<<< HEAD
         "Name": "product",
         "Type": "ShoesStore.Model.Product",
+=======
+        "Name": "productRequest",
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductRequestModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "DeleteProduct",
     "RelativePath": "api/Product/{id}",
+=======
+    "ContainingType": "ShoesStore.Controllers.ProductImageController",
+    "Method": "DeleteImage",
+    "RelativePath": "api/ProductImage/{imageID}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "id",
+=======
+        "Name": "imageID",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -266,6 +370,7 @@
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "GetProductsByDatTest",
     "RelativePath": "api/Product/get-by-dat",
@@ -276,6 +381,24 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[ShoesStore.Model.Product, ShoesStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+=======
+    "ContainingType": "ShoesStore.Controllers.ProductImageController",
+    "Method": "GetImageById",
+    "RelativePath": "api/ProductImage/{imageID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductImageRequestModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -287,6 +410,7 @@
   },
   {
     "ContainingType": "ShoesStore.Controllers.ProductImageController",
+<<<<<<< HEAD
     "Method": "GetProductImages",
     "RelativePath": "api/ProductImage",
     "HttpMethod": "GET",
@@ -296,32 +420,28 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[ShoesStore.Model.ProductImage, ShoesStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ShoesStore.Controllers.ProductImageController",
-    "Method": "PostProductImage",
-    "RelativePath": "api/ProductImage",
-    "HttpMethod": "POST",
+=======
+    "Method": "UpdateImage",
+    "RelativePath": "api/ProductImage/{imageID}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "productImage",
-        "Type": "ShoesStore.Model.ProductImage",
+        "Name": "imageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productImageRequestModel",
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductImageRequestModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ShoesStore.Model.ProductImage",
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductImageRequestModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -333,21 +453,79 @@
   },
   {
     "ContainingType": "ShoesStore.Controllers.ProductImageController",
+<<<<<<< HEAD
+    "Method": "PostProductImage",
+    "RelativePath": "api/ProductImage",
+=======
+    "Method": "AddImage",
+    "RelativePath": "api/ProductImage/{productID}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+<<<<<<< HEAD
+        "Name": "productImage",
+        "Type": "ShoesStore.Model.ProductImage",
+=======
+        "Name": "productID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productImageRequestModel",
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductImageRequestModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+<<<<<<< HEAD
+        "Type": "ShoesStore.Model.ProductImage",
+=======
+        "Type": "ShoesStore.ViewModel.RequestModel.ProductImageRequestModel",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.ProductImageController",
+<<<<<<< HEAD
     "Method": "GetProductImage",
     "RelativePath": "api/ProductImage/{id}",
+=======
+    "Method": "GetAllImagesByProductId",
+    "RelativePath": "api/ProductImage/product/{productID}",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "id",
+=======
+        "Name": "productID",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
+<<<<<<< HEAD
         "Type": "ShoesStore.Model.ProductImage",
+=======
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ShoesStore.ViewModel.RequestModel.ProductImageRequestModel, ShoesStore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -358,6 +536,7 @@
     ]
   },
   {
+<<<<<<< HEAD
     "ContainingType": "ShoesStore.Controllers.ProductImageController",
     "Method": "PutProductImage",
     "RelativePath": "api/ProductImage/{id}",
@@ -395,6 +574,8 @@
     "ReturnTypes": []
   },
   {
+=======
+>>>>>>> abf29a0e4f76a861f96487f53a467c509c086218
     "ContainingType": "ShoesStore.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
