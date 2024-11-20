@@ -16,19 +16,15 @@ namespace ShoesStore.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProdudctRepository _productRepository;
+        private AppDbContext _context;
 
-        public ProductController(IProdudctRepository productRepository)
+		public ProductController(IProdudctRepository productRepository, AppDbContext context)
         {
             _productRepository = productRepository;
+            _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductReponseViewModel>>> GetAllProducts()
-        {
-
-            var product = _context.Products.ToList();
-            return product;
-        }
+       
 
 		[HttpGet("get-by-dat")]
 		public async Task<ActionResult<IEnumerable<Product>>> GetProductsByDatTest()
@@ -63,32 +59,7 @@ namespace ShoesStore.Controllers
 			return Ok(products);
 		}
 
-		// GET: api/Product/{id}
-		[HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
-        {
-            var product = _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-
-            if (product == null)
-
-            try
-
-            {
-                var products = await _productRepository.GetAllProductAsync();
-
-                if (products == null || !products.Any())
-                {
-                    return NotFound("No products found.");
-                }
-
-                return Ok(products);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
+		
 
 
         // POST: api/Product

@@ -36,7 +36,7 @@ namespace ShoesStore.Repository
         public async Task<IEnumerable<ProductReponseViewModel>> GetAllProductAsync()
         {
             var products = await _context.Products
-                .Include(ps => ps.ProductSizes)
+                .Include(ps => ps.ProductSizeStocks)
                 .Include(pi => pi.ProductImages)
                 .ToListAsync();
 
@@ -68,7 +68,7 @@ namespace ShoesStore.Repository
         public async Task<ProductReponseViewModel> GetProductAsync(int productId)
         {
             var product = await _context.Products
-                .Include(ps => ps.ProductSizes)
+                .Include(ps => ps.ProductSizeStocks)
                 .Include(pi => pi.ProductImages)
                 .FirstOrDefaultAsync(p => p.Id == productId);
 
