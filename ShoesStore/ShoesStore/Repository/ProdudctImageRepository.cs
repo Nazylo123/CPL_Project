@@ -15,7 +15,7 @@ namespace ShoesStore.Repository
         }
         async Task<ProductImageRequestModel> IProdudctImageRepository.AddImageAsync(int productID, ProductImageRequestModel productImageRequestModel)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(p=>p.Id == productID);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productID);
 
             if (product == null)
             {
@@ -34,7 +34,7 @@ namespace ShoesStore.Repository
                 _context.SaveChangesAsync();
                 return new ProductImageRequestModel
                 {
-                    IsPrimary  = true,
+                    IsPrimary = true,
                     ProductId = productID,
                     ImageUrl = productImageRequestModel.ImageUrl,
                 };
@@ -45,7 +45,7 @@ namespace ShoesStore.Repository
         async Task<bool> IProdudctImageRepository.DeleteImageAsync(int imageID)
         {
             var image = await _context.ProductImages.FirstOrDefaultAsync(pi => pi.Id == imageID);
-            if(image == null)
+            if (image == null)
             {
                 return false;
             }
@@ -60,8 +60,8 @@ namespace ShoesStore.Repository
         async Task<IEnumerable<ProductImageRequestModel>> IProdudctImageRepository.GetAllProductImageAsync(int productID)
         {
             var images = await _context.ProductImages
-                .Where(pi=> pi.ProductId == productID)
-                .Select(pi=> new ProductImageRequestModel
+                .Where(pi => pi.ProductId == productID)
+                .Select(pi => new ProductImageRequestModel
                 {
                     ProductId = productID,
                     ImageUrl = pi.ImageUrl,
@@ -71,11 +71,28 @@ namespace ShoesStore.Repository
             return images;
 
         }
+        public async Task<ProductImage> UpdateImageByProductIdAsync(int productID, ProductImageRequestModel productImageRequestModel)
+        {
+            var imageToUpdate = await _context.ProductImages
+                                                 .FirstOrDefaultAsync(img => img.ProductId == productID);
+
+            if (imageToUpdate == null)
+            {
+                return null;
+            }
+
+
+            imageToUpdate.ImageUrl = productImageRequestModel.ImageUrl;
+            imageToUpdate.IsPrimary = productImageRequestModel.IsPrimary;
+            await _context.SaveChangesAsync();
+
+            return imageToUpdate;
+        }
 
         async Task<ProductImageRequestModel> IProdudctImageRepository.GetProductImageByIdAsync(int imageID)
-        { 
+        {
             var image = await _context.ProductImages.
-                FirstOrDefaultAsync(pi =>pi.Id  == imageID);
+                FirstOrDefaultAsync(pi => pi.Id == imageID);
 
             return new ProductImageRequestModel
             {
@@ -93,7 +110,8 @@ namespace ShoesStore.Repository
                 return null;
             }
 
-            else { 
+            else
+            {
                 image.ImageUrl = productImageRequestModel.ImageUrl;
                 image.IsPrimary = productImageRequestModel.IsPrimary;
                 await _context.SaveChangesAsync();
@@ -105,7 +123,8 @@ namespace ShoesStore.Repository
             }
 
 
-            
+
         }
+
     }
 }

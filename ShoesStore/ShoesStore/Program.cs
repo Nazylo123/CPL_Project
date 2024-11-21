@@ -64,6 +64,17 @@ namespace WebAPI
                 options.Password.RequiredUniqueChars = 1;
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -90,6 +101,7 @@ namespace WebAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowSpecificOrigins");
 
             app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
