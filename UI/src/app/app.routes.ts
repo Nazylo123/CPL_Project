@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { CartComponent } from './carts/cart/cart.component';
+
 import { TestcartComponent } from './carts/testcart/testcart.component';
+import { CartComponent } from './carts/cart/cart.component';
 
 export const routes: Routes = [
   {

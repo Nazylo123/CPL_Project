@@ -6,12 +6,12 @@ import { FooterComponent } from './footer/footer.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { TestcartComponent } from "./carts/testcart/testcart.component";
+import { TestcartComponent } from './carts/testcart/testcart.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, TestcartComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

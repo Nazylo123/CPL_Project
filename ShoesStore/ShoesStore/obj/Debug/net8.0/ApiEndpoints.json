@@ -183,6 +183,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ShoesStore.Controllers.MomoController",
+    "Method": "CreatePayment",
+    "RelativePath": "api/Momo/create-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ShoesStore.Model.Momo.MomoExecuteResponseModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.MomoController",
+    "Method": "PaymentResult",
+    "RelativePath": "api/Momo/payment-result",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ShoesStore.Controllers.ProductController",
     "Method": "CreateProduct",
     "RelativePath": "api/Product/{categoryID}",
@@ -415,6 +441,43 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.ProductSizeStockController",
+    "Method": "GetStock",
+    "RelativePath": "api/ProductSizeStock/get-stock",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sizeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShoesStore.Controllers.ProductSizeStockController",
+    "Method": "UpdateStock",
+    "RelativePath": "api/ProductSizeStock/update-stock",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ShoesStore.ViewModel.RequestModel.UpdateStockRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ShoesStore.Controllers.WeatherForecastController",

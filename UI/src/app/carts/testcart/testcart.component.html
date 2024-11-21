@@ -1,8 +1,19 @@
 <div class="product-list">
+
+
+
+
+    <div class="overlay" *ngIf="showPopup">
+        <div class="popup">
+            <h2>Xác nhận</h2>
+            <p>Thanh toán thành công!</p>
+            <button (click)="closePopup()">OK</button>
+        </div>
+    </div>
     <div class="product" *ngFor="let product of products">
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
-        <p>Price: {{ product.price | currency }}</p>
+        <p>Price: {{ product.price | currency:'VND':'symbol' }}</p>
         <p>Category: {{ product.category.name }}</p>
         <p>Created At: {{ product.createdAt | date }}</p>
 
@@ -25,5 +36,8 @@
             </button>
         </a>
 
+
     </div>
 </div>
+
+<!-- payment-result.component.html -->

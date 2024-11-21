@@ -1,13 +1,13 @@
-import { CartServiceService } from './../carts/services/cart.service';
 import { CartRequest } from './../carts/models/cart.request';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CartServiceService } from '../carts/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })

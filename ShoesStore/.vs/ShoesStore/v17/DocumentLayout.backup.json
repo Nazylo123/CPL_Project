@@ -3,15 +3,71 @@
   "WorkspaceRootPath": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\productsizestockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productsizestockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\repository\\productsizestockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\repository\\productsizestockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\repository\\produdctimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\repository\\produdctimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\productimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\model\\productsizestock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\model\\productsizestock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\viewmodel\\requestmodel\\updatestockrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\viewmodel\\requestmodel\\updatestockrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\model\\momo\\momooptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\model\\momo\\momooptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\services\\momoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\services\\momoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\services\\imomoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\services\\imomoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,7 +77,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 107,
+          "SelectedChildIndex": 110,
           "Children": [
             {
               "$type": "Bookmark",
@@ -453,7 +509,183 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProdudctImageRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\ProdudctImageRepository.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Repository\\ProdudctImageRepository.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\ProdudctImageRepository.cs",
+              "RelativeToolTip": "ShoesStore\\Repository\\ProdudctImageRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:45:10.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductImageController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\ProductImageController.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductImageController.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\ProductImageController.cs",
+              "RelativeToolTip": "ShoesStore\\Controllers\\ProductImageController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:41:27.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateStockRequest.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
+              "RelativeToolTip": "ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:41:07.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductSizeStockController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\ProductSizeStockController.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductSizeStockController.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\ProductSizeStockController.cs",
+              "RelativeToolTip": "ShoesStore\\Controllers\\ProductSizeStockController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:39:03.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductSizeStockRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\ProductSizeStockRepository.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Repository\\ProductSizeStockRepository.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\ProductSizeStockRepository.cs",
+              "RelativeToolTip": "ShoesStore\\Repository\\ProductSizeStockRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAADwvyEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:37:34.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductSizeStock.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\ProductSizeStock.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Model\\ProductSizeStock.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\ProductSizeStock.cs",
+              "RelativeToolTip": "ShoesStore\\Model\\ProductSizeStock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:37:19.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MomoController.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\MomoController.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\MomoController.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\MomoController.cs",
+              "RelativeToolTip": "ShoesStore\\Controllers\\MomoController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowEAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T14:10:13.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MomoOptionModel.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\Momo\\MomoOptionModel.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Model\\Momo\\MomoOptionModel.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\Momo\\MomoOptionModel.cs",
+              "RelativeToolTip": "ShoesStore\\Model\\Momo\\MomoOptionModel.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:59:45.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MomoService.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Services\\MomoService.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Services\\MomoService.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Services\\MomoService.cs",
+              "RelativeToolTip": "ShoesStore\\Services\\MomoService.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowFAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:57:54.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IMomoService.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Services\\IMomoService.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Services\\IMomoService.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Services\\IMomoService.cs",
+              "RelativeToolTip": "ShoesStore\\Services\\IMomoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:57:39.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Program.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Program.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Program.cs",
+              "RelativeToolTip": "ShoesStore\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAGsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:48:23.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\IRepository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\IRepository\\IAccountRepository.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\IRepository\\IAccountRepository.cs",
+              "RelativeToolTip": "ShoesStore\\IRepository\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T05:36:39.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\appsettings.json",
+              "RelativeDocumentMoniker": "ShoesStore\\appsettings.json",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\appsettings.json",
+              "RelativeToolTip": "ShoesStore\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-20T05:30:05.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Model\\Product.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Model\\Product.cs",
+              "RelativeToolTip": "ShoesStore\\Model\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T03:15:48.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -461,12 +693,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAGkYAAAAAAAAAAAAALMWAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-11-20T03:06:00.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T03:06:00.841Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\ProductRepository.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Repository\\ProductRepository.cs",
@@ -478,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductController.cs",

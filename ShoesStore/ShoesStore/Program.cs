@@ -8,6 +8,8 @@ using ShoesStore.Repository;
 using System.Text;
 using WebApi.Data;
 using ShoesStore.Data;
+using ShoesStore.Model.Momo;
+using ShoesStore.Services;
 
 namespace WebAPI
 {
@@ -17,9 +19,13 @@ namespace WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+			builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
+			builder.Services.AddScoped<IMomoService, MomoService>();
 
-            builder.Services.AddControllers();
+
+			// Add services to the container.
+
+			builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -33,7 +39,7 @@ namespace WebAPI
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            // connect Momo
 
             builder.Services.AddScoped<IProdudctRepository, ProductRepository>();
             builder.Services.AddScoped<IProdudctImageRepository, ProdudctImageRepository>();
