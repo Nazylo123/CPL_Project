@@ -11,5 +11,6 @@ namespace ShoesStore.IRepository
 
         Task<ProductImageRequestModel> UpdateImageAsync(int imageID, ProductImageRequestModel productImageRequestModel);    
         Task<bool> DeleteImageAsync(int imageID);
+       
     }
 }
