@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\new folder (2)\\cpl_project\\shoesstore\\shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\new folder (2)\\cpl_project\\shoesstore\\shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\viewmodel\\requestmodel\\updatestockrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\new folder (2)\\cpl_project\\shoesstore\\shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|d:\\new folder (2)\\cpl_project\\shoesstore\\shoesstore\\controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\momocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -89,7 +89,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 106,
+          "SelectedChildIndex": 111,
           "Children": [
             {
               "$type": "Bookmark",
@@ -517,33 +517,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\AuthController.cs",
               "RelativeToolTip": "ShoesStore\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAYwK8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T06:21:13.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\CartController.cs",
-              "RelativeToolTip": "ShoesStore\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T03:47:37.585Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ProductImageController.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductImageController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductImageController.cs",
@@ -555,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "UpdateStockRequest.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
               "RelativeDocumentMoniker": "ShoesStore\\ViewModel\\RequestModel\\UpdateStockRequest.cs",
@@ -567,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\appsettings.json",
               "RelativeDocumentMoniker": "ShoesStore\\appsettings.json",
@@ -575,12 +562,11 @@
               "RelativeToolTip": "ShoesStore\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-20T05:30:05.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T05:30:05.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductController.cs",
@@ -588,12 +574,36 @@
               "RelativeToolTip": "ShoesStore\\Controllers\\ProductController.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAwwIoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T03:03:18.756Z",
+              "WhenOpened": "2024-11-20T03:03:18.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Program.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Program.cs",
+              "ToolTip": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Program.cs",
+              "RelativeToolTip": "ShoesStore\\Program.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:48:23.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\CartController.cs",
+              "RelativeToolTip": "ShoesStore\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T03:47:37.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ProdudctImageRepository.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Repository\\ProdudctImageRepository.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Repository\\ProdudctImageRepository.cs",
@@ -605,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CartViewModel.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\ViewModel\\RequestModel\\CartViewModel.cs",
               "RelativeDocumentMoniker": "ShoesStore\\ViewModel\\RequestModel\\CartViewModel.cs",
@@ -617,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ProductSizeStockController.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Controllers\\ProductSizeStockController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\ProductSizeStockController.cs",
@@ -629,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ProductSizeStockRepository.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Repository\\ProductSizeStockRepository.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Repository\\ProductSizeStockRepository.cs",
@@ -641,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ProductSizeStock.cs",
               "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Model\\ProductSizeStock.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Model\\ProductSizeStock.cs",
@@ -698,18 +708,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T12:57:39.432Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Program.cs",
-              "RelativeDocumentMoniker": "ShoesStore\\Program.cs",
-              "ToolTip": "D:\\New folder (2)\\CPL_Project\\ShoesStore\\ShoesStore\\Program.cs",
-              "RelativeToolTip": "ShoesStore\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAGsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T12:48:23.269Z"
             },
             {
               "$type": "Document",
