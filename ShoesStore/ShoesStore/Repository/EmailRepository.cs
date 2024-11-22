@@ -22,9 +22,14 @@ namespace ShoesStore.Repository
             var smtpClient = new SmtpClient(host,port);
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
+            
             smtpClient.Credentials  =new NetworkCredential(email, password);
 
-            var message = new MailMessage(email!, receptor, subject, body);
+            var message = new MailMessage(email!, receptor, subject, body)
+            {
+                IsBodyHtml = true
+            };
+
             await smtpClient.SendMailAsync(message);
 
 
