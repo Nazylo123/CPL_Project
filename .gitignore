@@ -14,6 +14,20 @@ UI/yarn-error.log*
 # Loại trừ tất cả thư mục node_modules trên toàn dự án (nếu có)
 **/node_modules/
 
-# Tệp nhạy cảm hoặc cấu hình
-UI/src/environments/environment*.ts
- 
+# Ignore Visual Studio files
+.vs/
+.vscode/
+# Ignore bin and obj folders
+bin/
+obj/
+# Ignore build files and caches
+*.dll
+*.exe
+*.pdb
+*.cache
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+
