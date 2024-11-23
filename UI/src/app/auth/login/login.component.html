@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="login.component.css">
+<div class="login-container">
+  <nav class="breadcrumb">
+    <a routerLink="/home">Trang chủ</a> &gt; <span>Đăng nhập tài khoản</span>
+  </nav>
+
+  <h2>Đăng nhập tài khoản</h2>
+
+  <p>Nếu bạn đã có tài khoản, đăng nhập tại đây.</p>
+
+  <form class="login-form" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" placeholder="Mật khẩu" [(ngModel)]="password" name="password" required />
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn-submit">Đăng nhập</button>
+      <a routerLink="/register" class="btn-register">Đăng ký</a>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="forgot-password">
+    <h3>Bạn quên mật khẩu?</h3>
+    <p>Nhập địa chỉ email để lấy lại mật khẩu qua email.</p>
+    <form>
+      <div class="form-group">
+        <label for="forgot-email">Email:</label>
+        <input type="email" id="forgot-email" placeholder="Email" name="forgotEmail" required />
+      </div>
+      <button type="button" class="btn-recover">
+        Lấy lại mật khẩu
+      </button>
+    </form>
+  </div>
+</div>
