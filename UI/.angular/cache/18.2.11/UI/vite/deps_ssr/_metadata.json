@@ -1,61 +1,61 @@
 {
-  "hash": "dd751297",
-  "configHash": "817b5dc7",
+  "hash": "4100b0cf",
+  "configHash": "3945dca6",
   "lockfileHash": "c1d612f7",
-  "browserHash": "f98d07fe",
+  "browserHash": "28c93a7f",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "004213e4",
+      "fileHash": "bf69178b",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "367fcc3a",
+      "fileHash": "7b896f46",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "79a39433",
+      "fileHash": "c2783c13",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "26c5b461",
+      "fileHash": "50becd84",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "10780147",
+      "fileHash": "562ec290",
       "needsInterop": false
     },
     "@angular/platform-server": {
       "src": "../../../../../../node_modules/@angular/platform-server/fesm2022/platform-server.mjs",
       "file": "@angular_platform-server.js",
-      "fileHash": "1d834ad4",
+      "fileHash": "03d0282a",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "47a213d0",
+      "fileHash": "fe63014b",
       "needsInterop": false
     },
     "jwt-decode": {
       "src": "../../../../../../../node_modules/jwt-decode/build/esm/index.js",
       "file": "jwt-decode.js",
-      "fileHash": "22a5b56e",
+      "fileHash": "60778b67",
       "needsInterop": false
     },
     "ngx-cookie-service": {
       "src": "../../../../../../node_modules/ngx-cookie-service/fesm2022/ngx-cookie-service.mjs",
       "file": "ngx-cookie-service.js",
-      "fileHash": "09afdbdb",
+      "fileHash": "64626ded",
       "needsInterop": false
     }
   },
