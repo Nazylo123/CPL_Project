@@ -36,12 +36,12 @@ namespace ShoesStore.Controllers
 				return BadRequest("Giỏ hàng trống");
 			}
 
-			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Lấy UserId từ JWT token
+			//var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Lấy UserId từ JWT token
 
 			// Tạo đơn hàng
 			var order = new Order
 			{
-				UserId = userId,
+				UserId = "user2",
 				OrderDate = DateTime.UtcNow,
 				Status = "Pending", // Hoặc trạng thái khác như "Completed"
 				TotalAmount = cart.Sum(item => item.Price * item.Quantity),
@@ -82,11 +82,28 @@ namespace ShoesStore.Controllers
 				return StatusCode(500, $"Lỗi khi lưu đơn hàng: {ex.Message}");
 			}
 
-			// Xóa giỏ hàng trong cookie sau khi thanh toán
-			Response.Cookies.Delete("cart");
+		
 
-			return Ok(order);
+			// Trả về dữ liệu cần thiết thay vì toàn bộ đối tượng `order`
+			var response = new
+			{
+				orderId = order.Id,
+				userId = order.UserId,
+				orderDate = order.OrderDate,
+				status = order.Status,
+				totalAmount = order.TotalAmount,
+				items = order.OrderItems.Select(item => new
+				{
+					productId = item.ProductId,
+					sizeId = item.SizeId,
+					quantity = item.Quantity,
+					price = item.Price
+				})
+			};
+
+			return Ok(response);
 		}
+
 
 	}
 }

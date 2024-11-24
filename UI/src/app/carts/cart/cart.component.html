@@ -17,6 +17,7 @@
                             <tr>
                                 <th class="product-thumbnail">Image</th>
                                 <th class="product-name">Product</th>
+                                <th class="product-name">Size</th>
                                 <th class="product-price">Price</th>
                                 <th class="product-quantity">Quantity</th>
                                 <th class="product-total">Total</th>
@@ -31,6 +32,9 @@
                                 </td>
                                 <td class="product-name">
                                     <h2 class="h5 text-black">{{cartItem.nameProdcut}}</h2>
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black">{{cartItem.sizeName}}</h2>
                                 </td>
                                 <td>{{cartItem.price | currency:'VND':'symbol'}}</td>
                                 <td>
@@ -92,7 +96,7 @@
                 <div class="row mb-5">
 
                     <div class="col-md-6">
-                        <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                        <button class="btn btn-outline-primary btn-sm btn-block"><a href="/shop">Continue Shopping</a></button>
                     </div>
                 </div>
             </div>
@@ -125,9 +129,8 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary btn-lg py-3 btn-block" (click)="createPayment()">Proceed
-                                    To
-                                    Checkout</button>
+                                <button class="btn btn-primary btn-lg py-3 btn-block" (click)="createPayment()">
+                                    Proceed To Checkout</button>
                             </div>
                         </div>
                     </div>

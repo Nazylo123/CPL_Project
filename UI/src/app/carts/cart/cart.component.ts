@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule,FormsModule ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -29,13 +29,13 @@ export class CartComponent implements OnInit {
     private router: Router
   ) {
     // Khởi tạo model với các giá trị mặc định
-   this.model = {
+    this.model = {
       orderId: 'string', // Bạn có thể gán giá trị mặc định hoặc lấy từ dữ liệu khác
       amount: '10000', // Tương tự cho amount
       fullName: 'dat', // Tên đầy đủ
       orderInfo: 'chuyen tien', // Thông tin đơn hàng
       message: 'string', // Tin nhắn thanh toán
-      };
+    };
   }
 
   ngOnInit() {
@@ -79,9 +79,5 @@ export class CartComponent implements OnInit {
         console.error('Error creating payment', error);
       }
     );
-
-   
   }
-
- 
 }

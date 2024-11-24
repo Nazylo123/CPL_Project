@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CartComponent } from './carts/cart/cart.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { TestcartComponent } from './carts/testcart/testcart.component';
 
 @Component({
   selector: 'app-root',
