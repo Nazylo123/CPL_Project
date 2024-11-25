@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Danh sách người dùng</h2>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <table *ngIf="users.length > 0" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Access Failed Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userName }}</td>
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.accessFailedCount }}</td>
+        <td>
+          <button type="button" class="btn btn-danger">
+            <a href="" style="color: aliceblue;">Delete</a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="users.length === 0 && !errorMessage">Không có người dùng nào.</p>
+</div>
+
+<div>Abc</div>

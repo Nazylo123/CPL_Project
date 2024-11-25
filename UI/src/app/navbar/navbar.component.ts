@@ -24,9 +24,13 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent implements OnInit {
   cartItems: CartRequest[] = [];
   sizeCart: number = 0;
+
   searchTerm: string = '';
 
   suggestions: string[] = []; // Danh sách gợi ý
+
+  email: string | null = '';
+
   constructor(
     private cookieService: CookieService,
     private cartService: CartServiceService,
@@ -39,6 +43,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
     this.sizeCart = this.cartItems.length;
+    this.email = this.authService.getEmail();
+    console.log(this.email);
   }
 
 
@@ -75,6 +81,6 @@ export class NavbarComponent implements OnInit {
     return this.authService.checkLoginStatus();
 
   }
-  
+
 
 }

@@ -1,93 +1,92 @@
 <header class="site-navbar" role="banner">
 
-    <div class="site-navbar-top">
-        <div class="container">
-            <div class="row align-items-center">
-                    <div class="position-relative">
-                        <form (submit)="onSearch()" class="d-flex align-items-center">
-                            <!-- Biểu tượng tìm kiếm -->
-                            <button type="submit" class="btn btn-link p-0 me-2">
-                                <i class="bi bi-search text-primary"></i>
-                            </button>
+  <div class="site-navbar-top">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="position-relative">
+          <form (submit)="onSearch()" class="d-flex align-items-center">
+            <!-- Biểu tượng tìm kiếm -->
+            <button type="submit" class="btn btn-link p-0 me-2">
+              <i class="bi bi-search text-primary"></i>
+            </button>
 
-                            <!-- Ô nhập liệu -->
-                            <input type="text" class="form-control shadow-sm" [(ngModel)]="searchTerm" name="searchTerm"
-                                placeholder="Search" (input)="onSearchTermChange()" 
-                            style="border-radius: 20px;"
-                            />
-                        </form>
+            <!-- Ô nhập liệu -->
+            <input type="text" class="form-control shadow-sm" [(ngModel)]="searchTerm" name="searchTerm"
+              placeholder="Search" (input)="onSearchTermChange()" style="border-radius: 20px;" />
+          </form>
 
-                        <!-- Danh sách gợi ý -->
-                        <ul *ngIf="suggestions.length > 0" class="list-group position-absolute w-100 shadow-lg"
-                            style="top: 50px; z-index: 1050; border-radius: 10px;">
-                            <li class="list-group-item list-group-item-action" *ngFor="let suggestion of suggestions"
-                                (click)="selectSuggestion(suggestion)" >
-                                <i class="bi bi-box-seam text-primary me-2"></i> <!-- Icon sản phẩm -->
-                                {{ suggestion }}
-                            </li>
-                        </ul>
-                    </div>
+          <!-- Danh sách gợi ý -->
+          <ul *ngIf="suggestions.length > 0" class="list-group position-absolute w-100 shadow-lg"
+            style="top: 50px; z-index: 1050; border-radius: 10px;">
+            <li class="list-group-item list-group-item-action" *ngFor="let suggestion of suggestions"
+              (click)="selectSuggestion(suggestion)">
+              <i class="bi bi-box-seam text-primary me-2"></i> <!-- Icon sản phẩm -->
+              {{ suggestion }}
+            </li>
+          </ul>
+        </div>
 
-                    <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-                      <div class="site-logo">
-                        <a href="/home" class="js-logo-clone">Shoppers</a>
-                      </div>
-                    </div>
-              
-                    <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-                      <div class="site-top-icons">
-                                <ul>
-                                  <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                      <span class="icon icon-person"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                      <li *ngIf="isLoggedIn()">
-                                        <a href="#" (click)="logout()">Logout</a>
-                                      </li>
-                                      <li *ngIf="!isLoggedIn()">
-                                        <a href="/login">Login</a>
-                                      </li>
-                                      <li>
-                                        <a href="/dashboard">ABC</a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                                  <li>
-                                    <a [routerLink]="['/cart']" class="site-cart">
-                                      <span class="icon icon-shopping_cart"></span>
-                                      <span class="count">{{sizeCart}}</span>
-                                    </a>
-                                  </li>
-                                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
-                                        class="icon-menu"></span></a></li>
-
-                              </ul>
-                        </div>
-                    </div>
-                     
-                    
+        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+          <div class="site-logo">
+            <a href="/home" class="js-logo-clone">Shoppers</a>
           </div>
         </div>
-      </div>
-   
-    <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
-            <ul class="site-menu js-clone-nav d-none d-md-block">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                <li><a href="/shop">Shop</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-         </div>
-    </nav>
 
- 
+        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+          <div class="site-top-icons">
+            <ul>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="icon icon-person"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngIf="isLoggedIn()">
+                    <a href="#" (click)="logout()">Logout</a>
+                    <a href="/get_by_email">
+                      <!-- <p>{{email}}</p> -->
+                      <div>Email: {{email}}</div>
+                    </a>
+                  </li>
+                  <li *ngIf="!isLoggedIn()">
+                    <a href="/login">Login</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+              <li>
+                <a [routerLink]="['/cart']" class="site-cart">
+                  <span class="icon icon-shopping_cart"></span>
+                  <span class="count">{{sizeCart}}</span>
+                </a>
+              </li>
+              <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                    class="icon-menu"></span></a></li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="site-navigation text-right text-md-center" role="navigation">
+    <div class="container">
+      <ul class="site-menu js-clone-nav d-none d-md-block">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="#">Catalogue</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
 </header>
