@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShoesStore.IRepository;
 using ShoesStore.Model;
@@ -17,41 +19,54 @@ namespace ShoesStore.Controllers
 		private readonly IProductSizeStockRepository _productSizeStockRepository;
 
 		private readonly AppDbContext _context;
+		private readonly UserManager<IdentityUser> _userManager;
 
-		public CartController(IOrdersRepository ordersRepository, IProductSizeStockRepository productSizeStockRepository, AppDbContext context)
+		public CartController(IOrdersRepository ordersRepository, IProductSizeStockRepository productSizeStockRepository, AppDbContext context, UserManager<IdentityUser> userManager)
 		{
 			_ordersRepository = ordersRepository;
 			_productSizeStockRepository = productSizeStockRepository;
-		
+		    _userManager = userManager;
 			_context = context;
 		}
-
 		[HttpPost("checkout")]
 		public async Task<IActionResult> Checkout([FromBody] CheckoutRequest checkoutRequest)
 		{
-			var cart = checkoutRequest.Cart; // Cart từ frontend gửi lên
-
+			// Kiểm tra giỏ hàng
+			var cart = checkoutRequest.Cart;
 			if (cart == null || cart.Count == 0)
 			{
 				return BadRequest("Giỏ hàng trống");
 			}
 
-			//var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Lấy UserId từ JWT token
+			// Kiểm tra email
+			if (string.IsNullOrWhiteSpace(checkoutRequest.Email))
+			{
+				return BadRequest("Email không hợp lệ");
+			}
+
+			// Tìm thông tin người dùng
+			var user = await _userManager.FindByEmailAsync(checkoutRequest.Email);
+			if (user == null)
+			{
+				return BadRequest("Người dùng không tồn tại");
+			}
+
+			string userId = user.Id.ToString();
 
 			// Tạo đơn hàng
 			var order = new Order
 			{
-				UserId = "user2",
+				UserId = userId,
 				OrderDate = DateTime.UtcNow,
-				Status = "Pending", // Hoặc trạng thái khác như "Completed"
+				Status = "Pending", // Trạng thái mặc định
 				TotalAmount = cart.Sum(item => item.Price * item.Quantity),
 				OrderItems = new List<OrderItem>()
 			};
 
-			// Tạo các mục trong đơn hàng và cập nhật tồn kho
+			// Xử lý từng mục trong giỏ hàng
 			foreach (var item in cart)
 			{
-				// Thêm OrderItem vào đơn hàng
+				// Thêm OrderItem
 				var orderItem = new OrderItem
 				{
 					ProductId = item.ProductId,
@@ -65,12 +80,11 @@ namespace ShoesStore.Controllers
 				bool isStockUpdated = await _productSizeStockRepository.UpdateStockAsync(item.ProductId, item.SizeId, item.Quantity);
 				if (!isStockUpdated)
 				{
-					// Nếu không đủ kho, trả về lỗi và không tiếp tục xử lý đơn hàng
-					return BadRequest($"Số lượng sản phẩm {item.ProductId} kích thước {item.SizeId} không đủ trong kho.");
+					return BadRequest($"Sản phẩm {item.ProductId} kích thước {item.SizeId} không đủ tồn kho.");
 				}
 			}
 
-			// Lưu đơn hàng và các mục của nó
+			// Lưu đơn hàng
 			try
 			{
 				await _context.Orders.AddAsync(order);
@@ -78,13 +92,10 @@ namespace ShoesStore.Controllers
 			}
 			catch (Exception ex)
 			{
-				// Nếu có lỗi khi lưu đơn hàng, trả về lỗi
 				return StatusCode(500, $"Lỗi khi lưu đơn hàng: {ex.Message}");
 			}
 
-		
-
-			// Trả về dữ liệu cần thiết thay vì toàn bộ đối tượng `order`
+			// Chuẩn bị dữ liệu phản hồi
 			var response = new
 			{
 				orderId = order.Id,

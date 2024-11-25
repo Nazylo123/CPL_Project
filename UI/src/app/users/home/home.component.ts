@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { CartServiceService } from './../../carts/services/cart.service';
 import { CommonModule } from '@angular/common';
 import { MomoRequest } from './../../carts/models/momo.request';
@@ -17,14 +18,17 @@ export class HomeComponent implements OnInit {
   momoRequest: MomoRequest | null = null;
   popupTitle = '';
   popupMessage = '';
+  email: string = '';
   constructor(
     private route: ActivatedRoute,
     private checkoutService: CheckoutService,
     private cartService: CartServiceService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
   ngOnInit(): void {
     this.getPaymentResult();
+    this.email = this.authService.getEmail() ?? ''; // Nếu null, gán chuỗi rỗng
   }
 
   closePopup() {
@@ -59,15 +63,17 @@ export class HomeComponent implements OnInit {
   }
 
   checkOutCart() {
-    this.checkoutService.checkout(this.cartService.getCartItems()).subscribe(
-      (response) => {
-        this.cartService.clearCart();
-        alert('Thanh toán thành công! Cảm ơn bạn đã mua sắm.');
-        this.router.navigate(['']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.checkoutService
+      .checkout(this.cartService.getCartItems(), this.email)
+      .subscribe(
+        (response) => {
+          this.cartService.clearCart();
+          alert('Thanh toán thành công! Cảm ơn bạn đã mua sắm.');
+          this.router.navigate(['']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

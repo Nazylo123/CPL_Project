@@ -12,7 +12,7 @@ using WebApi.Data;
 namespace ShoesStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241121125245_InitialDb")]
+    [Migration("20241125073649_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />

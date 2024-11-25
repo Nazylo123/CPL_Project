@@ -11,6 +11,7 @@ using ShoesStore.Data;
 using ShoesStore.Model.Momo;
 using ShoesStore.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System.Security.Claims;
 
 
 namespace WebAPI
@@ -82,7 +83,8 @@ namespace WebAPI
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        AuthenticationType = "Jwt",
+						NameClaimType = ClaimTypes.NameIdentifier, // Ánh xạ NameIdentifier
+						AuthenticationType = "Jwt",
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,

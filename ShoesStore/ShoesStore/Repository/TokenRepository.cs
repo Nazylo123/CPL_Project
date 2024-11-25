@@ -20,7 +20,7 @@ namespace ShoesStore.Repository
         {
             // tao ra 1 list claim de lu thong tin va vai tro cua user
             var claims = new List<Claim>
-            {
+            {   new Claim(ClaimTypes.NameIdentifier,user.Id),
                 new Claim(ClaimTypes.Email, user.Email),
             };
             claims.AddRange(roles.Select(role=> new Claim(ClaimTypes.Role, role)));

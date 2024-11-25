@@ -26,9 +26,10 @@ export class CheckoutService {
       `${Base_Url}Momo/payment-result?${queryString}`
     );
   }
-  checkout(request: CartRequest[]): Observable<any> {
-    return this.http.post<CartRequest>(`${Base_Url}Cart/checkout`, {
+  checkout(request: CartRequest[], email: string): Observable<any> {
+    return this.http.post<any>(`${Base_Url}Cart/checkout`, {
       Cart: request,
+      Email: email,
     });
   }
 }
