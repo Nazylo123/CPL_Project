@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { MomoRequest } from '../models/momo.request';
 import { MomoCreatePaymentResponse } from '../models/momo-create-payment-response';
 import { Base_Url } from '../../app.config';
+import { CartRequest } from '../models/cart.request';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,13 @@ export class CheckoutService {
 
   getResultmomo(queryString: string): Observable<MomoRequest> {
     // Dùng template literal để truyền đúng giá trị cho URL
-    return this.http.get<MomoRequest>(`${Base_Url}Momo/payment-result?${queryString}`);
+    return this.http.get<MomoRequest>(
+      `${Base_Url}Momo/payment-result?${queryString}`
+    );
+  }
+  checkout(request: CartRequest[]): Observable<any> {
+    return this.http.post<CartRequest>(`${Base_Url}Cart/checkout`, {
+      Cart: request,
+    });
   }
 }

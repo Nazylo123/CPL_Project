@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +10,8 @@ using WebApi.Data;
 using ShoesStore.Data;
 using ShoesStore.Model.Momo;
 using ShoesStore.Services;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace WebAPI
 {
@@ -30,7 +32,11 @@ namespace WebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContext<AppDbContext>(option =>
+		
+
+
+
+			builder.Services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });

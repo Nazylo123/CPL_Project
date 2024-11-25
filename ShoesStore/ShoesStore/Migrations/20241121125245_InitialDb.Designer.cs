@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace ShoesStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241116055539_initialdatabase")]
-    partial class initialdatabase
+    [Migration("20241121125245_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -306,34 +306,6 @@ namespace ShoesStore.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("ShoesStore.Model.ProductSize", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("ProductId1");
-
-                    b.HasIndex("SizeId");
-
-                    b.ToTable("ProductSizes");
-                });
-
             modelBuilder.Entity("ShoesStore.Model.ProductSizeStock", b =>
                 {
                     b.Property<int>("Id")
@@ -592,33 +564,10 @@ namespace ShoesStore.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ShoesStore.Model.ProductSize", b =>
-                {
-                    b.HasOne("ShoesStore.Model.Product", "Product")
-                        .WithMany("ProductSizes")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("ShoesStore.Model.Product", null)
-                        .WithMany("ProductSizeStocks")
-                        .HasForeignKey("ProductId1");
-
-                    b.HasOne("ShoesStore.Model.Size", "Size")
-                        .WithMany("ProductSizes")
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Size");
-                });
-
             modelBuilder.Entity("ShoesStore.Model.ProductSizeStock", b =>
                 {
                     b.HasOne("ShoesStore.Model.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductSizeStocks")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -660,15 +609,11 @@ namespace ShoesStore.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductSizeStocks");
-
-                    b.Navigation("ProductSizes");
                 });
 
             modelBuilder.Entity("ShoesStore.Model.Size", b =>
                 {
                     b.Navigation("ProductSizeStocks");
-
-                    b.Navigation("ProductSizes");
                 });
 
             modelBuilder.Entity("WebApi.Models.AppUser", b =>

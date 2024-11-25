@@ -1,0 +1,137 @@
+/* Overlay toàn màn hình */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* Nền mờ đen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hiệu ứng mờ dần */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Popup chính */
+.popup {
+    background: #ffffff;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng bóng */
+    overflow: hidden;
+    animation: slideDown 0.4s ease-out;
+}
+
+/* Hiệu ứng trượt xuống */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Header của popup */
+.popup-header {
+    background: #4caf50;
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Tiêu đề popup */
+.popup-title {
+    margin: 0;
+}
+
+/* Nút đóng popup */
+.close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #ffdddd;
+}
+
+/* Nội dung của popup */
+.popup-body {
+    padding: 20px;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Footer của popup */
+.popup-footer {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Nút trong footer */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Nút "OK" */
+.btn-primary {
+    background: #4caf50;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #45a049;
+}
+
+/* Nút "Cancel" */
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333333;
+}
+
+.btn-secondary:hover {
+    background: #d6d6d6;
+}

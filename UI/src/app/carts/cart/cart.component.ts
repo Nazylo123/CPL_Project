@@ -1,3 +1,5 @@
+import { AuthService } from './../../auth/auth.service';
+
 import { CheckoutService } from './../services/checkout.service';
 import { MomoCreatePaymentResponse } from './../models/momo-create-payment-response';
 import { MomoRequest } from './../models/momo.request';
@@ -15,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule,FormsModule ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -26,16 +28,17 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartServiceService,
     private checkoutService: CheckoutService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     // Khởi tạo model với các giá trị mặc định
-   this.model = {
+    this.model = {
       orderId: 'string', // Bạn có thể gán giá trị mặc định hoặc lấy từ dữ liệu khác
       amount: '10000', // Tương tự cho amount
       fullName: 'dat', // Tên đầy đủ
       orderInfo: 'chuyen tien', // Thông tin đơn hàng
       message: 'string', // Tin nhắn thanh toán
-      };
+    };
   }
 
   ngOnInit() {
@@ -69,19 +72,19 @@ export class CartComponent implements OnInit {
   }
 
   createPayment() {
-    this.checkoutService.createMomoPayment(this.model).subscribe(
-      (response: MomoCreatePaymentResponse) => {
-        this.momoCreatePaymentResponse = response;
-        console.log('Payment created successfully', response);
-        window.location.href = response.payUrl;
-      },
-      (error) => {
-        console.error('Error creating payment', error);
-      }
-    );
-
-   
+    if (!this.authService.checkLoginStatus()) {
+      this.router.navigate(['/login']);
+    } else {
+      this.checkoutService.createMomoPayment(this.model).subscribe(
+        (response: MomoCreatePaymentResponse) => {
+          this.momoCreatePaymentResponse = response;
+          console.log('Payment created successfully', response);
+          window.location.href = response.payUrl;
+        },
+        (error) => {
+          console.error('Error creating payment', error);
+        }
+      );
+    }
   }
-
- 
 }

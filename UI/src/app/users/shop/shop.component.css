@@ -1,0 +1,13 @@
+.selected-category {
+    color: #007bff;
+    /* Màu sắc khi thể loại được chọn */
+    font-weight: bold;
+    /* Làm đậm văn bản */
+}
+
+a:hover {
+    color: #0056b3;
+    /* Màu khi di chuột vào */
+    text-decoration: underline;
+    /* Gạch dưới khi di chuột vào */
+}
