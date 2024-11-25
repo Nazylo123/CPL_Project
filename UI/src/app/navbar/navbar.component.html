@@ -26,13 +26,15 @@
                 <ul class="dropdown-menu">
                   <li *ngIf="isLoggedIn()">
                     <a href="#" (click)="logout()">Logout</a>
+                    <a href="/get_by_email">
+                      <!-- <p>{{email}}</p> -->
+                      <div>Email: {{email}}</div>
+                    </a>
                   </li>
                   <li *ngIf="!isLoggedIn()">
                     <a href="/login">Login</a>
                   </li>
-                  <li>
-                    <a href="/dashboard">ABC</a>
-                  </li>
+
                 </ul>
               </li>
               <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
@@ -79,8 +81,7 @@
           </ul>
         </li>
         <li><a href="shop.html">Shop</a></li>
-        <li><a href="#">Catalogue</a></li>
-        <li><a href="#">New Arrivals</a></li>
+        <li><a>New Arrivals</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>

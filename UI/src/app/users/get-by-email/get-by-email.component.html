@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Thông tin người dùng</h2>
+
+  <div *ngIf="user">
+    <h3>Thông tin chi tiết:</h3>
+    <p><strong>Tên đăng nhập:</strong> {{ user.userName }}</p>
+    <p><strong>Họ tên:</strong> {{ user.fullName }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Số điện thoại:</strong> {{ user.phoneNumber || 'Không có' }}</p>
+    <p><strong>Access Failed Count:</strong> {{ user.accessFailedCount }}</p>
+    <div>
+
+      <button type="button" class="btn btn-warning"><a href="/user_update">Update</a></button>
+
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>

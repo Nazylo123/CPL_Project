@@ -11,12 +11,16 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  register(data: { email: string; password: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, data);
+  }
   login(data: { email: string; password: string }) {
     return this.http.post(`${this.baseUrl}/login`, data);
   }
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
     this.router.navigate(['/login']);
   }
 
@@ -29,7 +33,14 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
+  getEmail(): string | null {
+    return localStorage.getItem('email');
+  }
+
   checkLoginStatus(): boolean {
     return this.isLoggedIn();
+  }
+  setEmail(email: string): void {
+    localStorage.setItem('email', email);
   }
 }
