@@ -15,6 +15,7 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { GetByEmailComponent } from './users/get-by-email/get-by-email.component';
 import { ProductManageComponent } from './productManage/product.component';
+import { OrderComponent } from './manage/order/order.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,9 @@ export const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+  },
+  {
+    path: 'order', component: OrderComponent
   },
   {
     path: '',
