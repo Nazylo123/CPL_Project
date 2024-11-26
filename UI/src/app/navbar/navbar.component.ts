@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
 
   imports: [RouterLink, FormsModule, CommonModule],
 
-
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -31,13 +30,14 @@ export class NavbarComponent implements OnInit {
 
   email: string | null = '';
 
+  isAdmin: boolean = false;
+
   constructor(
     private cookieService: CookieService,
     private cartService: CartServiceService,
     private router: Router,
     private productService: ProductsService,
     private authService: AuthService
-
   ) {}
 
   ngOnInit(): void {
@@ -45,8 +45,9 @@ export class NavbarComponent implements OnInit {
     this.sizeCart = this.cartItems.length;
     this.email = this.authService.getEmail();
     console.log(this.email);
+    // Kiểm tra xem người dùng có phải là admin không
+    this.isAdmin = this.authService.isAdmin();
   }
-
 
   onSearchTermChange(): void {
     if (this.searchTerm.trim() !== '') {
@@ -79,8 +80,5 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn(): boolean {
     return this.authService.checkLoginStatus();
-
   }
-
-
 }

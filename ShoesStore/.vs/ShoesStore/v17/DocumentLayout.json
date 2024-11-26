@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Migrations\\20241125073649_InitialDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ShoesStore\\Migrations\\20241125073649_InitialDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\migrations\\20241125073649_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\migrations\\20241125073649_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\repository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\repository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|solutionrelative:shoesstore\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9463DE-6E2B-479C-B097-0CB818735EED}|ShoesStore\\ShoesStore.csproj|c:\\users\\laptop fpt\\downloads\\ojt\\project ojt\\shoesstore\\shoesstore\\viewmodel\\requestmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -98,11 +98,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 115,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CheckoutRequest.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\ViewModel\\RequestModel\\CheckoutRequest.cs",
               "RelativeDocumentMoniker": "ShoesStore\\ViewModel\\RequestModel\\CheckoutRequest.cs",
@@ -111,21 +111,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T15:17:34.84Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20241125073649_InitialDb.cs",
-              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
-              "RelativeDocumentMoniker": "ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
-              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
-              "RelativeToolTip": "ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T07:36:49.643Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -557,7 +543,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "20241125073649_InitialDb.cs",
+              "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
+              "RelativeDocumentMoniker": "ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
+              "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
+              "RelativeToolTip": "ShoesStore\\Migrations\\20241125073649_InitialDb.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T07:36:49.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "TokenRepository.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Repository\\TokenRepository.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Repository\\TokenRepository.cs",
@@ -565,8 +563,7 @@
               "RelativeToolTip": "ShoesStore\\Repository\\TokenRepository.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T04:03:23.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T04:03:23.366Z"
             },
             {
               "$type": "Document",
@@ -606,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\CartController.cs",
@@ -614,8 +611,7 @@
               "RelativeToolTip": "ShoesStore\\Controllers\\CartController.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAUwHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T14:51:56.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T14:51:56.148Z"
             },
             {
               "$type": "Document",
@@ -631,15 +627,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "ShoesStore\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\LAPTOP FPT\\Downloads\\OJT\\Project OJT\\ShoesStore\\ShoesStore\\Controllers\\AuthController.cs",
               "RelativeToolTip": "ShoesStore\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwDEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T02:08:26.968Z"
+              "WhenOpened": "2024-11-25T02:08:26.968Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

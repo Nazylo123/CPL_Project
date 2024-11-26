@@ -3,11 +3,12 @@ import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
 import { log } from 'node:console';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
@@ -17,23 +18,7 @@ export class DashboardComponent implements OnInit {
   email: string | null = '';
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.token = this.authService.getToken();
-    this.email = this.authService.getEmail();
-    console.log('Token:', this.token);
-    console.log('Email: ', this.email);
-    if (this.token) {
-      const decoded: any = jwtDecode(this.token);
-      console.log('Decoded Token:', decoded);
-      this.role1 =
-        decoded[
-          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
-        ] || 'No role found';
-      console.log('Role:', this.role1);
-
-      // this.role = decoded.role || 'No role found';
-    }
-  }
+  ngOnInit() {}
 
   logout() {
     this.authService.logout();

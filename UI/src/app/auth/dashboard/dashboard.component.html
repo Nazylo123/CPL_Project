@@ -1,7 +1,19 @@
-<div>
-  <h1>Welcome to the Dashboard</h1>
-  <div>
-    <p>Role: {{ role1 }}</p> <!-- Hiển thị role -->
-    <p>Email: {{email}}</p>
-    <button (click)="logout()">Logout</button>
-  </div>
+<div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a >Product</a></li>
+            <li><a href="/dashboard/user_list">User List</a></li>
+            <li><a href="/dashboard/user_update">Update User</a></li>
+            
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+       
+        <router-outlet />
+    </div>
+</div>
+

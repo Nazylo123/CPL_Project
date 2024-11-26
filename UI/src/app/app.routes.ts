@@ -46,13 +46,16 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
+    data: { role: 'Admin' }, // Chỉ admin được truy cập
+    children: [
+      { path: 'user_list', component: UserListComponent },
+      {
+        path: 'user_update',
+        component: UpdateUserComponent,
+      },
+    ],
   },
 
-  { path: 'user_list', component: UserListComponent },
-  {
-    path: 'user_update',
-    component: UpdateUserComponent,
-  },
   { path: 'get_by_email', component: GetByEmailComponent },
   { path: '**', redirectTo: '/home' },
 ];

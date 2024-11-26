@@ -27,6 +27,7 @@
     "jquery-ui-dist": "^1.13.3",
     "ng5-slider": "^1.2.6",
     "ngx-cookie-service": "^18.0.0",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "ui": "file:",

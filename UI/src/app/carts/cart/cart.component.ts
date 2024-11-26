@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
     this.model = {
       orderId: 'string', // Bạn có thể gán giá trị mặc định hoặc lấy từ dữ liệu khác
       amount: '10000', // Tương tự cho amount
-      fullName: 'dat', // Tên đầy đủ
+      fullName: this.authService.getEmail() ?? '',
       orderInfo: 'chuyen tien', // Thông tin đơn hàng
       message: 'string', // Tin nhắn thanh toán
     };
@@ -44,6 +44,7 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.loadCart(); // Lấy giỏ hàng từ cookie khi component khởi tạo
   }
+
   sumTotalCart(): string {
     const totalQuantity = this.cartItems.reduce(
       (total: number, currentItem: CartRequest) => {
