@@ -6,9 +6,8 @@ namespace ShoesStore.IRepository
     public interface IProdudctRepository
     {
         Task<IEnumerable<ProductReponseViewModel>> GetAllProductAsync();
-        public Task AddProductAsync(ProductRequestModel productRequest, int categoryId);
-        Task<bool> DeleteproductAsync(int productId);
+        Task AddProductAsync(ProductRequestModel productRequest, int categoryId);
+        Task<bool> DeleteProductAsync(int productId);
         Task<ProductReponseViewModel> GetProductAsync(int productId);
-        Task<bool> UpdateProdudctAsync(ProductRequestModel productRequestModel, int productId);
     }
 }

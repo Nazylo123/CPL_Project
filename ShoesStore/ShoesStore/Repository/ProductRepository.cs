@@ -5,6 +5,7 @@ using WebApi.Data;
 using ShoesStore.Model;
 using ShoesStore.ViewModel.ResponseModel;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ShoesStore.Repository
     
@@ -18,18 +19,35 @@ namespace ShoesStore.Repository
             _context = context;
         }
 
-        public async Task<bool> DeleteproductAsync(int productId)
+        public async Task<bool> DeleteProductAsync(int productId)
         {
-            var product =await _context.Products.FindAsync(productId);
+            var product = await _context.Products.FindAsync(productId);
             if (product == null)
             {
                 return false;
             }
-            else
+
+            try
             {
-                _context.Products.Remove(product);
-                _context.SaveChangesAsync();
+                var productsize = _context.ProductSizeStocks.Where(e => e.ProductId == product.Id);
+                var productimage = _context.ProductImages.Where(e => e.ProductId == product.Id);
+                foreach (var item in productsize)
+                {
+                    _context.ProductSizeStocks.Remove(item);
+
+                }
+                foreach (var item in productimage)
+                {
+                    _context.ProductImages.Remove(item);
+
+                }
+                _context.Remove(product);
+                _context.SaveChanges();
                 return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 
@@ -100,30 +118,59 @@ namespace ShoesStore.Repository
             };
         }
 
-        public async Task<bool> UpdateProdudctAsync(ProductRequestModel productRequestModel, int productId)
+        public async Task<bool> UpdateProductAsync([FromForm] ProductRequestModel productRequestModel, int id)
         {
-            
-            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
 
             if (existingProduct == null)
             {
-                return false;
+                return false; // Return false if product not found
             }
 
-            else
+            try
             {
+                // Update product details
                 existingProduct.Name = productRequestModel.Name;
                 existingProduct.Description = productRequestModel.Description;
                 existingProduct.Price = productRequestModel.Price;
                 existingProduct.UpdatedAt = DateTime.Now;
 
+                // Update product size stocks
+                _context.ProductSizeStocks.RemoveRange(existingProduct.ProductSizeStocks); // Remove old sizes
+                foreach (var sizeQuantity in productRequestModel.SizeQuantities)
+                {
+                    var sizeStock = new ProductSizeStock
+                    {
+                        ProductId = existingProduct.Id,
+                        SizeId = sizeQuantity.SizeId,
+                        Quantity = sizeQuantity.Quantity
+                    };
+                    _context.ProductSizeStocks.Add(sizeStock);
+                }
+
+                // Update product images
+                _context.ProductImages.RemoveRange(existingProduct.ProductImages); // Remove old images
+                foreach (var imageUrl in productRequestModel.ImageUrls)
+                {
+                    var productImage = new ProductImage
+                    {
+                        ProductId = existingProduct.Id,
+                        ImageUrl = imageUrl,
+                        IsPrimary = false // Set primary flag if needed
+                    };
+                    _context.ProductImages.Add(productImage);
+                }
 
                 _context.Products.Update(existingProduct);
                 await _context.SaveChangesAsync();
                 return true;
             }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLineAsync("Error: " + ex);
+                return false;
+            }
         }
-
 
         Task IProdudctRepository.AddProductAsync(ProductRequestModel productRequest, int categoryId)
         {

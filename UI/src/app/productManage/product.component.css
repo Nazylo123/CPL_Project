@@ -1,0 +1,205 @@
+/* General Container */
+.product-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Flex Layout for Form and Product List */
+.product-content {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.product-form-container,
+.product-list-container {
+    flex: 1;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.product-form .form-group {
+    margin-bottom: 20px;
+}
+
+.product-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.product-form .form-group input,
+.product-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+.product-form .form-group input:focus,
+.product-form .form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background: #fff;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.product-form .form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.product-form .btn {
+    width: 48%;
+    padding: 10px;
+    background: #4CAF50;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product-form .btn:hover {
+    background: #45a049;
+}
+
+.product-form .btn-secondary {
+    background: #f44336;
+}
+
+.product-form .btn-secondary:hover {
+    background: #d73227;
+}
+
+/* Product List Styling */
+.product-list-container .product-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-list-container .product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-list-container .product-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.product-details h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.product-details p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.product-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.product-actions .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product-actions .btn-edit {
+    background: #2196F3;
+    color: #fff;
+}
+
+.product-actions .btn-edit:hover {
+    background: #1976D2;
+}
+
+.product-actions .btn-delete {
+    background: #f44336;
+    color: #fff;
+}
+
+.product-actions .btn-delete:hover {
+    background: #d73227;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-controls .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pagination-controls .btn:hover {
+    background: #45a049;
+}
+
+.pagination-controls .btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-content {
+        flex-direction: column;
+    }
+}
