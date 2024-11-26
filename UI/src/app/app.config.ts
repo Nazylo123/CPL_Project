@@ -13,4 +13,4 @@ export const appConfig: ApplicationConfig = {
   ],
 };
 
-export const Base_Url = 'https://localhost:7102/api/';
+export const Base_Url = 'http://localhost:5041/api/';

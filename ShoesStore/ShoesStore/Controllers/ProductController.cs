@@ -26,7 +26,7 @@ namespace ShoesStore.Controllers
 
        
 
-		[HttpGet("get-by-dat")]
+		[HttpGet]
 		public async Task<ActionResult<IEnumerable<Product>>> GetProductsByDatTest()
 		{
 			var products = await _context.Products
@@ -248,45 +248,79 @@ namespace ShoesStore.Controllers
 
 
 
-		// POST: api/Product
-		[HttpPost("{categoryID}")]
+        // POST: api/Product
+        [HttpPost("{categoryID}")]
         public async Task<ActionResult> CreateProduct([FromBody] ProductRequestModel productRequest, int categoryID)
         {
             if (productRequest == null)
+                return BadRequest(new { message = "Invalid product request." });
+
+            if (string.IsNullOrWhiteSpace(productRequest.Name) ||
+                productRequest.Price <= 0 ||
+                productRequest.SizeQuantities == null || !productRequest.SizeQuantities.Any() ||
+                productRequest.ImageUrls == null || !productRequest.ImageUrls.Any())
             {
-                return BadRequest("ProductRequestModel is null.");
+                return BadRequest(new { message = "Product request contains invalid or missing data." });
             }
 
+            var categoryExists = await _context.Categories.AsNoTracking()
+                .AnyAsync(c => c.Id == categoryID);
+            if (!categoryExists)
+                return NotFound(new { message = "Category not found." });
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
+                var product = new Product
+                {
+                    Name = productRequest.Name,
+                    Description = productRequest.Description,
+                    Price = productRequest.Price,
+                    CategoryId = categoryID,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                    ProductSizeStocks = productRequest.SizeQuantities.Select(sq => new ProductSizeStock
+                    {
+                        SizeId = sq.SizeId,
+                        Quantity = sq.Quantity
+                    }).ToList(),
+                    ProductImages = productRequest.ImageUrls.Select(url => new ProductImage
+                    {
+                        ImageUrl = url
+                    }).ToList()
+                };
 
-                await _productRepository.AddProductAsync(productRequest, categoryID);
-                return Ok("Product created successfully.");
+                _context.Products.Add(product);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return Ok(new { message = "Product created successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                await transaction.RollbackAsync();
+                return StatusCode(500, new { message = "Internal server error.", details = ex.Message });
             }
         }
 
+
         [HttpDelete("{productId}")]
-        public async Task<ActionResult> Deleteproduct(int productId)
+        public async Task<ActionResult> DeleteProduct(int productId)
         {
             try
             {
-                bool result = await _productRepository.DeleteproductAsync(productId);
+                bool result = await _productRepository.DeleteProductAsync(productId);
                 if (result)
                 {
                     return Ok("Deleted successfully.");
                 }
-                else return NotFound($"Product with ID {productId} not found.");
+                return NotFound($"Product with ID {productId} not found.");
             }
             catch (Exception e)
             {
                 return StatusCode(500, $"Error: {e.Message}");
             }
         }
-
         [HttpGet("{productId}")]
         public async Task<ActionResult<ProductReponseViewModel>> GetProduct(int productId)
         {
@@ -311,27 +345,51 @@ namespace ShoesStore.Controllers
         public async Task<ActionResult> UpdateProduct(int productId, [FromBody] ProductRequestModel productRequest)
         {
             if (productRequest == null)
-            {
-                return BadRequest("ProductRequestModel is null.");
-            }
+                return BadRequest(new { message = "Invalid product request." });
 
+            var existingProduct = await _context.Products
+                .Include(p => p.ProductSizeStocks)
+                .Include(p => p.ProductImages)
+                .FirstOrDefaultAsync(p => p.Id == productId);
+
+            if (existingProduct == null)
+                return NotFound(new { message = "Product not found." });
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
-                await _productRepository.UpdateProdudctAsync(productRequest, productId);
-                return Ok("Product updated successfully.");
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
+                // Cập nhật thông tin cơ bản
+                existingProduct.Name = productRequest.Name;
+                existingProduct.Description = productRequest.Description;
+                existingProduct.Price = productRequest.Price;
+                existingProduct.UpdatedAt = DateTime.UtcNow;
+
+                // Xóa các liên kết cũ
+                _context.ProductSizeStocks.RemoveRange(existingProduct.ProductSizeStocks);
+                _context.ProductImages.RemoveRange(existingProduct.ProductImages);
+
+                // Thêm các liên kết mới
+                existingProduct.ProductSizeStocks = productRequest.SizeQuantities.Select(sq => new ProductSizeStock
+                {
+                    SizeId = sq.SizeId,
+                    Quantity = sq.Quantity
+                }).ToList();
+
+                existingProduct.ProductImages = productRequest.ImageUrls.Select(url => new ProductImage
+                {
+                    ImageUrl = url
+                }).ToList();
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return Ok(new { message = "Product updated successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                await transaction.RollbackAsync();
+                return StatusCode(500, new { message = "Internal server error.", details = ex.Message });
             }
         }
-
-
-
-
     }
 }
