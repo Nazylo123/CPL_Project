@@ -1,0 +1,60 @@
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0">
+                <a routerLink="/">Home</a>
+                <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">Orders</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>User ID</th>
+                            <th>Order Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.userId }}</td>
+                            <td>{{ order.orderDate | date: 'short' }}</td>
+                            <td>{{ order.totalAmount | currency: 'VND' }}</td>
+                            <td>
+                                <ng-container *ngIf="editingOrder && editingOrder.id === order.id; else displayStatus">
+                                    <select [(ngModel)]="editingOrder.status" class="form-control form-control-sm">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                        <option value="Delivering">Delivering</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                    <button (click)="saveOrderStatus(order.id)"
+                                        class="btn btn-primary btn-sm mt-1">Save</button>
+                                    <button (click)="cancelEdit()" class="btn btn-secondary btn-sm mt-1">Cancel</button>
+                                </ng-container>
+                                <ng-template #displayStatus>
+                                    <span>{{ order.status }}</span>
+                                </ng-template>
+                            </td>
+                            <td>
+                                <button (click)="editOrder(order)" class="btn btn-warning btn-sm">Edit</button>
+                                <button (click)="deleteOrder(order.id)" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
