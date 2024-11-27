@@ -24,8 +24,11 @@ namespace ShoesStore.Repository
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials  =new NetworkCredential(email, password);
 
-            var message = new MailMessage(email!, receptor, subject, body);
-            await smtpClient.SendMailAsync(message);
+			var message = new MailMessage(email!, receptor, subject, body)
+			{
+				IsBodyHtml = true
+			};
+			await smtpClient.SendMailAsync(message);
 
 
         }

@@ -63,4 +63,18 @@ export class AuthService {
       ] === 'Admin'
     ); // Trả về vai trò
   }
+
+  resetPassword(email: string, token: string, newPassword: string) {
+    return this.http.post(`${this.baseUrl}/reset-password`, {
+      email,
+      token,
+      newPassword,
+    });
+  }
+  changePassword(changePasswordData: any): Observable<any> {
+    return this.http.post<any>(
+      'https://localhost:7102/api/Auth/change-password',
+      changePasswordData
+    );
+  }
 }

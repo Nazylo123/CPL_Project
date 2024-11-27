@@ -21,9 +21,9 @@ export interface ProductManage {
   providedIn: 'root',
 })
 export class ProductManageService {
-  private apiUrl = 'http://localhost:5041/api/Product';
+  private apiUrl = 'https://localhost:7102/api/Product';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<ProductManage[]> {
     return this.http.get<ProductManage[]>(this.apiUrl);
@@ -47,5 +47,4 @@ export class ProductManageService {
   deleteProduct(id: number): Observable<string> {
     return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
   }
-
 }

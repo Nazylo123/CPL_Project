@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
   private apiUrl = 'https://localhost:7102/api/Order'; // Địa chỉ API backend
-  private deleteUrl = 'http://localhost:7102/api/Order';
-  constructor(private http: HttpClient) { }
+  private deleteUrl = 'https://localhost:7102/api/Order';
+  constructor(private http: HttpClient) {}
 
   // Lấy danh sách đơn hàng
   getOrders(): Observable<any[]> {

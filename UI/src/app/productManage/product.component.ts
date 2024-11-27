@@ -11,7 +11,7 @@ import { ProductManage } from '../users/services/product-manage.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
 })
-export class ProductManageComponent implements OnInit {
+export class ProductComponent implements OnInit {
   products: ProductManage[] = [];
   displayedProducts: ProductManage[] = [];
   productForm!: FormGroup;
@@ -21,7 +21,10 @@ export class ProductManageComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 1;
   pageSize: number = 4;
-  constructor(private productManageService: ProductManageService, private fb: FormBuilder) { }
+  constructor(
+    private productManageService: ProductManageService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -84,36 +87,40 @@ export class ProductManageComponent implements OnInit {
     const transformedProduct = this.transformFormValues(this.productForm.value);
     const categoryId = this.productForm.value.categoryId;
 
-    this.productManageService.addProduct(transformedProduct, categoryId).subscribe({
-      next: () => {
-        alert('Product added successfully!');
-        this.loadProducts();
-        this.resetForm();
-      },
-      error: (err) => {
-        console.error('Add failed', err);
-        const errorMessage = err.error?.message || 'An unexpected error occurred';
-        alert(`Failed to add product: ${errorMessage}`);
-      },
-    });
+    this.productManageService
+      .addProduct(transformedProduct, categoryId)
+      .subscribe({
+        next: () => {
+          alert('Product added successfully!');
+          this.loadProducts();
+          this.resetForm();
+        },
+        error: (err) => {
+          console.error('Add failed', err);
+          const errorMessage =
+            err.error?.message || 'An unexpected error occurred';
+          alert(`Failed to add product: ${errorMessage}`);
+        },
+      });
   }
-
 
   editProduct(): void {
     if (!this.checkFormValidity()) return;
 
     const transformedProduct = this.transformFormValues(this.productForm.value);
 
-    this.productManageService.updateProduct(this.currentProductId, transformedProduct).subscribe({
-      next: () => {
-        this.loadProducts();
-        this.resetForm();
-      },
-      error: (err) => {
-        console.error('Update failed', err);
-        alert('Failed to update product. Check the console for details.');
-      },
-    });
+    this.productManageService
+      .updateProduct(this.currentProductId, transformedProduct)
+      .subscribe({
+        next: () => {
+          this.loadProducts();
+          this.resetForm();
+        },
+        error: (err) => {
+          console.error('Update failed', err);
+          alert('Failed to update product. Check the console for details.');
+        },
+      });
   }
 
   prepareEditProduct(product: ProductManage): void {
@@ -162,12 +169,14 @@ export class ProductManageComponent implements OnInit {
   }
 
   transformFormValues(formValues: any): ProductManage {
-    const sizeQuantities = formValues.sizeId.split(',').map((id: string, index: number) => {
-      return {
-        SizeId: parseInt(id.trim(), 10),
-        Quantity: parseInt(formValues.quantity.split(',')[index].trim(), 10)
-      };
-    });
+    const sizeQuantities = formValues.sizeId
+      .split(',')
+      .map((id: string, index: number) => {
+        return {
+          SizeId: parseInt(id.trim(), 10),
+          Quantity: parseInt(formValues.quantity.split(',')[index].trim(), 10),
+        };
+      });
 
     return {
       ...formValues,

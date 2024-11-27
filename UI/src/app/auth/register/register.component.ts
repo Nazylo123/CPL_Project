@@ -42,6 +42,7 @@ export class RegisterComponent {
           this.message =
             res.message ||
             'Registration successful! Please check your email to confirm.';
+          alert('Comfirm mail please!!!!');
           this.registerForm.reset();
         },
         error: (err) => {

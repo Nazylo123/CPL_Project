@@ -5,10 +5,10 @@
   </nav>
 
   <h2>Đăng nhập tài khoản</h2>
-
   <p>Nếu bạn đã có tài khoản, đăng nhập tại đây.</p>
 
-  <form class="login-form" (ngSubmit)="onLogin()">
+  <!-- Login Form -->
+  <form class="login-form" *ngIf="!isForgotPasswordMode" (ngSubmit)="onLogin()">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" id="email" placeholder="Email" [(ngModel)]="email" name="email" required />
@@ -19,30 +19,42 @@
     </div>
     <div class="form-buttons">
       <button type="submit" class="btn-submit">Đăng nhập</button>
-
       <button type="button" class="btn btn-default">
-        <a href="/register">Đăng kí</a>
+        <a href="/register">Đăng ký</a>
       </button>
-
-
     </div>
   </form>
 
+  <!-- Error Message -->
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
   </div>
 
-  <div class="forgot-password">
+  <!-- Forgot Password Section -->
+  <div class="forgot-password" *ngIf="isForgotPasswordMode">
     <h3>Bạn quên mật khẩu?</h3>
     <p>Nhập địa chỉ email để lấy lại mật khẩu qua email.</p>
-    <form>
+    <form (ngSubmit)="onForgotPassword()">
       <div class="form-group">
         <label for="forgot-email">Email:</label>
-        <input type="email" id="forgot-email" placeholder="Email" name="forgotEmail" required />
+        <input type="email" id="forgot-email" placeholder="Email" [(ngModel)]="forgotPasswordEmail" name="forgotEmail"
+          required />
       </div>
-      <button type="button" class="btn-recover">
-        Lấy lại mật khẩu
+      <button type="submit" class="btn-recover">Lấy lại mật khẩu</button>
+      <button type="button" class="btn-back" (click)="toggleForgotPasswordMode()">
+        Quay lại đăng nhập
       </button>
     </form>
+    <div *ngIf="forgotPasswordMessage" class="message">
+      {{ forgotPasswordMessage }}
+    </div>
+  </div>
+
+  <!-- Forgot Password Toggle -->
+  <div class="forgot-password-toggle" *ngIf="!isForgotPasswordMode">
+    <h3>Bạn quên mật khẩu?</h3>
+    <button class="btn-forgot-password" (click)="toggleForgotPasswordMode()">
+      Quên mật khẩu
+    </button>
   </div>
 </div>

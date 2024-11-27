@@ -1,14 +1,4 @@
-<div class="bg-light py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mb-0">
-                <a routerLink="/">Home</a>
-                <span class="mx-2 mb-0">/</span>
-                <strong class="text-black">Orders</strong>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <div class="site-section">
     <div class="container">
@@ -26,7 +16,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let order of orders">
+                        <tr *ngFor="let order of orders | paginate: { itemsPerPage: 8, currentPage: currentPage }">
                             <td>{{ order.id }}</td>
                             <td>{{ order.userId }}</td>
                             <td>{{ order.orderDate | date: 'short' }}</td>
@@ -54,6 +44,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- Pagination -->
+                <pagination-controls (pageChange)="currentPage = $event" previousLabel="Trước" nextLabel="Sau" class="pagination">
+                </pagination-controls>
             </div>
         </div>
     </div>

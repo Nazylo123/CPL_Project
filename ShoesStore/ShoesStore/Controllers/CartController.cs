@@ -8,6 +8,7 @@ using ShoesStore.ViewModel;
 using ShoesStore.ViewModel.RequestModel;
 using System.Security.Claims;
 using WebApi.Data;
+using WebApi.Models;
 
 namespace ShoesStore.Controllers
 {
@@ -19,9 +20,9 @@ namespace ShoesStore.Controllers
 		private readonly IProductSizeStockRepository _productSizeStockRepository;
 
 		private readonly AppDbContext _context;
-		private readonly UserManager<IdentityUser> _userManager;
+		private readonly UserManager<AppUser> _userManager;
 
-		public CartController(IOrdersRepository ordersRepository, IProductSizeStockRepository productSizeStockRepository, AppDbContext context, UserManager<IdentityUser> userManager)
+		public CartController(IOrdersRepository ordersRepository, IProductSizeStockRepository productSizeStockRepository, AppDbContext context, UserManager<AppUser> userManager)
 		{
 			_ordersRepository = ordersRepository;
 			_productSizeStockRepository = productSizeStockRepository;
@@ -57,7 +58,7 @@ namespace ShoesStore.Controllers
 			var order = new Order
 			{
 				UserId = userId,
-				OrderDate = DateTime.UtcNow,
+				OrderDate = DateTime.Now,
 				Status = "Pending", // Trạng thái mặc định
 				TotalAmount = cart.Sum(item => item.Price * item.Quantity),
 				OrderItems = new List<OrderItem>()
