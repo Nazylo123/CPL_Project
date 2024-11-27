@@ -1,0 +1,108 @@
+<div class="product-container">
+    <h1>Product Management</h1>
+
+    <div class="product-content">
+        <!-- Form for adding or editing a product -->
+        <div class="product-form-container">
+            <form [formGroup]="productForm" (ngSubmit)="isEdit ? editProduct() : addProduct()" class="product-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" formControlName="name" placeholder="Enter product name" />
+                    <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched"
+                        class="error-message">
+                        Name is required and should be at least 2 characters.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" formControlName="description"
+                        placeholder="Enter product description"></textarea>
+                    <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched"
+                        class="error-message">
+                        Description is required and should be less than 200 characters.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input id="price" type="number" formControlName="price" placeholder="Enter product price" />
+                    <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched"
+                        class="error-message">
+                        Price is required and must be greater than 0.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoryId">Category ID:</label>
+                    <input id="categoryId" type="number" formControlName="categoryId" placeholder="Enter category ID" />
+                    <div *ngIf="productForm.get('categoryId')?.invalid && productForm.get('categoryId')?.touched"
+                        class="error-message">
+                        Category ID is required.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sizeId">Size IDs (comma-separated):</label>
+                    <input id="sizeId" type="text" formControlName="sizeId" placeholder="e.g. 1, 2, 3" />
+                </div>
+
+                <div class="form-group">
+                    <label for="sizeName">Size Names (comma-separated):</label>
+                    <input id="sizeName" type="text" formControlName="sizeName"
+                        placeholder="e.g. Small, Medium, Large" />
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantities (comma-separated):</label>
+                    <input id="quantity" type="text" formControlName="quantity" placeholder="e.g. 10, 20, 30" />
+                </div>
+
+                <div class="form-group">
+                    <label for="url">Image URL(s) (comma-separated):</label>
+                    <input id="url" type="text" formControlName="url"
+                        placeholder="e.g. https://example.com/img1, https://example.com/img2" />
+                    <div *ngIf="productForm.get('url')?.invalid && productForm.get('url')?.touched"
+                        class="error-message">
+                        Valid URL is required.
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+                        {{ isEdit ? 'Update' : 'Add' }} Product
+                    </button>
+                    <button type="button" class="btn btn-secondary" (click)="resetForm()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- List of products -->
+        <div class="product-list-container">
+            <div *ngFor="let product of displayedProducts" class="product-card">
+                <!-- <img [src]="product.url" alt="Product Image" class="product-image" *ngIf="product.url" /> -->
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p>Price: {{ product.price }}</p>
+                    <p>Category: {{ product.categoryId }}</p>
+                    <p>Sizes: {{ product.sizeName.join(', ') }}</p>
+                    <p>Quantities: {{ product.quantity.join(', ') }}</p>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-edit" (click)="prepareEditProduct(product)">Edit</button>
+                    <button class="btn btn-delete" (click)="deleteProduct(product.id)">Delete</button>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls">
+                <button class="btn" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+                <span>Page {{ currentPage }} of {{ totalPages }}</span>
+                <button class="btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+            </div>
+        </div>
+    </div>
+</div>

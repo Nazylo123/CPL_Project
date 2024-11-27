@@ -14,10 +14,10 @@ namespace ShoesStore.Model
         public string UserId { get; set; }
 
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;
-        public decimal TotalAmount { get; set; } 
-        public string Status { get; set; }
-	
-		public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public decimal TotalAmount { get; set; }
+        public string Status { get; set; }  // Trạng thái đơn hàng, sẽ là string
+
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         public AppUser User { get; set; }
     }
